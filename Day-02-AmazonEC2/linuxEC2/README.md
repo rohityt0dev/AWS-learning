@@ -312,7 +312,7 @@ If everything is configured correctly, you will see:
 - **Hello AWS!**
 - **Website Hosted on Amazon EC2**
 - **Created by Rohit Tambadkar**
-
+![image](https://github.com/rohityt0dev/AWS-learning/blob/e7437e7e1ffad65a9a8153e02660b0c752c6b5f5/Day-02-AmazonEC2/linuxEC2/SC/browser-output.png)
 ---
 
 # ✅ Expected Output
