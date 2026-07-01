@@ -1,221 +1,217 @@
-# 🎯 Cloud Computing Interview Questions and Answers
+# 🎯 Amazon EC2 Interview Questions and Answers
 
-This section contains the most commonly asked **Cloud Computing interview questions** for beginners, AWS learners, and aspiring DevOps Engineers.
+These are the most commonly asked **Amazon EC2 interview questions** for beginners, AWS learners, and aspiring DevOps Engineers.
 
 ---
 
-# 1. What is Cloud Computing?
+# 1. What is Amazon EC2?
 
 ### Answer
 
-Cloud Computing is the on-demand delivery of computing services such as servers, storage, databases, networking, software, and analytics over the Internet.
+Amazon Elastic Compute Cloud (EC2) is a web service provided by AWS that allows users to launch virtual servers (called **instances**) in the cloud. It provides scalable computing capacity on demand, enabling users to run applications without investing in physical hardware.
 
-Instead of purchasing and maintaining physical hardware, users can rent cloud resources from cloud providers and pay only for what they use.
+**Key Points:**
 
-**Example:**
-- Amazon Web Services (AWS)
-- Microsoft Azure
-- Google Cloud Platform (GCP)
+- Virtual servers in the cloud
+- Launch instances within minutes
+- Supports multiple operating systems
+- Highly scalable
+- Pay-as-you-go pricing
 
 ---
 
-# 2. What are the characteristics of Cloud Computing?
+# 2. What are the key features of EC2?
 
 ### Answer
 
-Cloud Computing has five essential characteristics:
+Amazon EC2 offers several important features:
 
-- **On-Demand Self-Service** – Users can provision resources whenever needed without human interaction.
-- **Broad Network Access** – Cloud services are accessible over the internet from various devices.
-- **Resource Pooling** – Resources are shared among multiple customers using a multi-tenant model.
-- **Rapid Elasticity** – Resources can be scaled up or down quickly based on demand.
-- **Measured Service** – Customers pay only for the resources they consume (Pay-as-you-Go).
+- **Elastic Scaling** – Increase or decrease compute capacity based on demand.
+- **Multiple Operating Systems** – Supports Linux, Windows, macOS, and custom AMIs.
+- **Secure Environment** – Uses IAM, Security Groups, and VPC for secure access.
+- **Global Infrastructure** – Deploy applications across multiple AWS Regions and Availability Zones.
+- **High Availability** – Applications can run across multiple Availability Zones for fault tolerance.
 
 ---
 
-# 3. Explain IaaS, PaaS, and SaaS.
+# 3. What is an Amazon Machine Image (AMI)?
 
 ### Answer
 
-### IaaS (Infrastructure as a Service)
+An **Amazon Machine Image (AMI)** is a pre-configured template used to launch an EC2 instance.
 
-Provides virtual infrastructure such as virtual machines, storage, and networking.
+An AMI contains:
 
-**Examples:**
-- Amazon EC2
-- Amazon EBS
-- Amazon VPC
+- Operating System
+- Application Software
+- System Configuration
+- Storage Configuration
 
----
-
-### PaaS (Platform as a Service)
-
-Provides a platform to develop, test, and deploy applications without managing the underlying infrastructure.
-
-**Example:**
-- AWS Elastic Beanstalk
+Every EC2 instance is launched from an AMI.
 
 ---
 
-### SaaS (Software as a Service)
-
-Provides ready-to-use software over the internet.
-
-**Examples:**
-- Gmail
-- Microsoft 365
-- Salesforce
-
----
-
-# 4. What is the difference between Public and Private Cloud?
+# 4. What are EC2 Instance Types?
 
 ### Answer
 
-| Public Cloud | Private Cloud |
-|---------------|---------------|
-| Owned by a cloud provider | Owned by a single organization |
-| Shared infrastructure | Dedicated infrastructure |
-| Lower cost | Higher cost |
-| Highly scalable | Limited scalability |
-| Accessible over the Internet | Accessible through a private network |
+Instance Types define the hardware configuration of an EC2 instance, including CPU, memory, storage, and networking performance.
+
+### Common Instance Families
+
+| Instance Family | Purpose |
+|-----------------|---------|
+| General Purpose | Balanced CPU and memory |
+| Compute Optimized | CPU-intensive applications |
+| Memory Optimized | Large memory workloads |
+| Storage Optimized | High-performance storage |
+| Accelerated Computing | GPU and machine learning workloads |
 
 ---
 
-# 5. What is Hybrid Cloud?
+# 5. What is the difference between EBS and Instance Store?
 
 ### Answer
 
-A Hybrid Cloud combines **Public Cloud** and **Private Cloud**, allowing data and applications to move between both environments.
-
-### Advantages
-
-- Better flexibility
-- Improved security
-- Cost optimization
-- Disaster recovery
-
-**Example:**
-
-A company stores sensitive customer data in a private cloud while hosting its public website on AWS.
+| Amazon EBS | Instance Store |
+|------------|----------------|
+| Persistent storage | Temporary storage |
+| Data survives instance stop/start | Data is lost when the instance stops or terminates |
+| Suitable for databases and operating systems | Suitable for temporary files, cache, and buffers |
+| Can create snapshots | Snapshots are not supported |
 
 ---
 
-# 6. Why is AWS the market leader?
+# 6. What is the purpose of a Security Group?
 
 ### Answer
 
-AWS is the world's leading cloud computing platform because it offers:
+A **Security Group** acts as a **virtual firewall** for an EC2 instance.
 
-- Over **200 cloud services**
-- Global infrastructure with multiple Regions and Availability Zones
-- High availability and reliability
-- Strong security features
-- Flexible pricing (Pay-as-you-Go)
-- Continuous innovation
-- Trusted by startups, enterprises, and governments worldwide
+It controls:
+
+- Inbound traffic
+- Outbound traffic
+
+### Features
+
+- Instance-level security
+- Stateful firewall
+- Supports only **Allow** rules
+- Automatically allows response traffic
 
 ---
 
-# 7. What is an AWS Region?
+# 7. What is an Elastic IP?
 
 ### Answer
 
-An **AWS Region** is a geographical area that contains multiple isolated **Availability Zones (AZs)**.
+An **Elastic IP (EIP)** is a static public IPv4 address provided by AWS.
 
-Each Region is independent and designed to provide high availability and fault tolerance.
-
-**Examples:**
-
-- Mumbai (**ap-south-1**)
-- Singapore (**ap-southeast-1**)
-- Frankfurt (**eu-central-1**)
-
----
-
-# 8. What is an Availability Zone (AZ)?
-
-### Answer
-
-An **Availability Zone (AZ)** is one or more physically separate data centers within an AWS Region.
-
-Availability Zones are connected by low-latency, high-speed networking.
+Unlike a normal public IP address, an Elastic IP remains the same even if the instance is stopped and started again.
 
 ### Benefits
 
-- High Availability
-- Fault Tolerance
-- Disaster Recovery
-- Improved Application Reliability
+- Static public IP address
+- Easy failover between instances
+- Useful for production applications
 
 ---
 
-# 9. What is the AWS Shared Responsibility Model?
+# 8. What is the difference between Security Groups and Network ACLs (NACLs)?
 
 ### Answer
 
-The AWS Shared Responsibility Model defines which security responsibilities belong to AWS and which belong to the customer.
-
-| AWS is Responsible For | Customer is Responsible For |
-|-------------------------|-----------------------------|
-| Physical security | IAM users and permissions |
-| Data centers | Operating system updates |
-| Hardware | Application security |
-| Global infrastructure | Customer data |
-| Networking infrastructure | Firewall and Security Group configuration |
-
-### Easy to Remember
-
-**AWS → Security *of* the Cloud**
-
-- Physical servers
-- Networking
-- Storage hardware
-- Data centers
-
-**Customer → Security *in* the Cloud**
-
-- User access
-- Applications
-- Data
-- Operating systems
-- Encryption
-- Backups
+| Security Group | Network ACL (NACL) |
+|----------------|--------------------|
+| Instance-level firewall | Subnet-level firewall |
+| Stateful | Stateless |
+| Supports only Allow rules | Supports Allow and Deny rules |
+| Applied to EC2 instances | Applied to subnets |
 
 ---
 
-# 10. What are the benefits of Cloud Computing?
+# 9. What are the different EC2 pricing models?
 
 ### Answer
 
-Cloud Computing offers many advantages, including:
+AWS provides multiple pricing options to meet different workload requirements.
 
-- ✅ Pay-as-you-Go pricing
-- ✅ High Availability
-- ✅ Scalability
-- ✅ Elasticity
-- ✅ Faster deployment
-- ✅ Global accessibility
-- ✅ Improved security
-- ✅ Automatic software updates
-- ✅ Backup and disaster recovery
-- ✅ Reduced infrastructure and maintenance costs
+### On-Demand
+
+- No long-term commitment
+- Pay only for what you use
+
+**Best For:** Development, testing, and short-term workloads.
 
 ---
 
-# 💡 Quick Revision
+### Reserved Instances
+
+- 1-year or 3-year commitment
+- Up to **72% cost savings**
+
+**Best For:** Predictable workloads.
+
+---
+
+### Savings Plans
+
+- Flexible pricing model
+- Lower cost based on committed hourly usage
+
+**Best For:** Long-running applications with changing instance types.
+
+---
+
+### Spot Instances
+
+- Uses unused AWS capacity
+- Up to **90% lower cost**
+- Can be interrupted by AWS
+
+**Best For:** Batch jobs, CI/CD, big data, and fault-tolerant applications.
+
+---
+
+### Dedicated Hosts
+
+- Physical server dedicated to one customer
+
+**Best For:** Compliance requirements and software licensing.
+
+---
+
+# 10. What are the common use cases of Amazon EC2?
+
+### Answer
+
+Amazon EC2 is commonly used for:
+
+- Hosting websites and web applications
+- Running application servers
+- Hosting databases (MySQL, PostgreSQL, Oracle)
+- CI/CD pipelines (Jenkins, GitHub Actions)
+- Machine Learning and AI workloads
+- Big Data processing
+- Development and testing environments
+- High Performance Computing (HPC)
+- Disaster Recovery solutions
+- Enterprise applications
+
+---
+
+# ⭐ Quick Revision
 
 | Question | Short Answer |
-|-----------|--------------|
-| What is Cloud Computing? | On-demand delivery of IT resources over the Internet. |
-| Characteristics? | On-Demand, Broad Access, Resource Pooling, Rapid Elasticity, Measured Service. |
-| IaaS | Virtual infrastructure. |
-| PaaS | Platform for application development and deployment. |
-| SaaS | Ready-to-use software over the Internet. |
-| Public Cloud | Shared infrastructure managed by a cloud provider. |
-| Private Cloud | Dedicated infrastructure for a single organization. |
-| Hybrid Cloud | Combination of Public and Private Cloud. |
-| AWS Region | Geographic location containing multiple Availability Zones. |
-| Availability Zone | One or more isolated data centers within a Region. |
-| Shared Responsibility Model | AWS secures the cloud; customers secure what they deploy in the cloud. |
-| Benefits | Cost savings, scalability, security, high availability, and global reach. |
+|----------|--------------|
+| What is EC2? | A service that provides scalable virtual servers in AWS. |
+| What is an AMI? | A template used to launch EC2 instances. |
+| What are Instance Types? | Hardware configurations for CPU, memory, storage, and networking. |
+| What is EBS? | Persistent block storage for EC2 instances. |
+| What is Instance Store? | Temporary storage that is deleted when the instance stops or terminates. |
+| What is a Security Group? | A stateful virtual firewall for EC2 instances. |
+| What is an Elastic IP? | A static public IPv4 address for EC2 instances. |
+| Security Group vs NACL? | Security Groups are stateful and instance-level; NACLs are stateless and subnet-level. |
+| EC2 Pricing Models? | On-Demand, Reserved Instances, Savings Plans, Spot Instances, and Dedicated Hosts. |
+| Common EC2 Use Cases? | Web hosting, databases, CI/CD, AI/ML, big data, testing, and enterprise applications. |
