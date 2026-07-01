@@ -1,0 +1,48 @@
+#!/bin/bash
+
+# Update system
+sudo yum update -y
+
+# Install Apache Web Server
+yum install -y httpd
+
+# Enable and Start Apache
+sudo systemctl enable httpd
+sudo systemctl start httpd
+
+# Create HTML Website
+cat <<EOF > /var/www/html/index.html
+<!DOCTYPE html>
+<html>
+<head>
+<title>My AWS Website</title>
+
+<style>
+body{
+    font-family: Arial;
+    background:#f4f4f4;
+    text-align:center;
+    margin-top:100px;
+}
+
+h1{
+    color:#ff9900;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>Hello AWS!</h1>
+
+<h2>Website Hosted on Amazon EC2</h2>
+
+<p>Created by Rohit Tambadkar</p>
+
+</body>
+</html>
+EOF
+
+# Restart Apache
+sudo systemctl restart httpd
