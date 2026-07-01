@@ -98,7 +98,7 @@ Amazon Linux 2023
 Select:
 
 ```text
-t2.micro
+t3.micro
 ```
 
 > **Free Tier Eligible**
