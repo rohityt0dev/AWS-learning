@@ -11,7 +11,7 @@
 5. Select an AWS Region.
 6. Leave the default settings (or adjust Block Public Access if hosting a website).
 7. Click **Create bucket**.
-
+![bucket](https://github.com/rohityt0dev/AWS-learning/blob/11154ddd075f1369912bb323d1c3c0794258b914/Day-04-S3/SC/bucket.png)
 ---
 
 ## Upload Files
