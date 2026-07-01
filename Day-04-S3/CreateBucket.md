@@ -24,7 +24,7 @@ style.css
 script.js
 images/
 ```
-
+![upload](https://github.com/rohityt0dev/AWS-learning/blob/a707e25d05bdb6cb162ae18646ec740b37253b85/Day-04-S3/SC/upload.png)
 ---
 
 ##
