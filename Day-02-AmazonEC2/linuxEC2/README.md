@@ -112,7 +112,7 @@ Create a new key pair.
 Example:
 
 ```text
-my-key.pem
+keywin-01.pem
 ```
 
 Download the `.pem` file and store it safely.
@@ -179,7 +179,7 @@ ssh -i my-key.pem ec2-user@13.234.xxx.xxx
 Update all installed packages.
 
 ```bash
-sudo dnf update -y
+sudo yum update -y
 ```
 
 ---
@@ -189,7 +189,7 @@ sudo dnf update -y
 Install Apache.
 
 ```bash
-sudo dnf install httpd -y
+sudo yum install httpd -y
 ```
 
 ### Start Apache
