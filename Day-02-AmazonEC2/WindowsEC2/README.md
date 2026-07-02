@@ -64,7 +64,7 @@ Before starting this project, ensure you have:
 
 ---
 
-# 🚀 Step 1: Launch a Windows EC2 Instance
+# 🚀 Launch a Windows EC2 Instance
 
 Login to the **AWS Management Console**.
 
@@ -136,7 +136,7 @@ Running
 
 ---
 
-# 🔐 Step 2: Configure the Security Group
+# 🔐 Configure the Security Group
 
 Add the following inbound rules:
 
@@ -149,7 +149,7 @@ Add the following inbound rules:
 
 ---
 
-# 🔑 Step 3: Get the Windows Administrator Password
+# 🔑 Get the Windows Administrator Password
 
 After the instance is running:
 
@@ -177,7 +177,7 @@ Password:
 
 ---
 
-# 🖥️ Step 4: Connect Using Remote Desktop
+# 🖥️ Connect Using Remote Desktop
 
 Open:
 
@@ -205,7 +205,7 @@ You are now connected to the Windows Server.
 
 ---
 
-# 🌐 Step 5: Install IIS (Internet Information Services)
+# 🌐 Install IIS (Internet Information Services)
 
 Open:
 
@@ -243,7 +243,7 @@ Wait for the installation to complete.
 
 ---
 
-# ✅ Step 6: Test IIS
+# ✅ Test IIS
 
 Open a browser **inside the Windows Server**.
 
@@ -277,7 +277,7 @@ You should see the same IIS Welcome Page.
 
 ---
 
-# 📁 Step 7: Default Website Folder
+# 📁 Default Website Folder
 
 The default IIS website directory is:
 
@@ -289,7 +289,7 @@ This is where IIS serves website files.
 
 ---
 
-# 📄 Step 8: Replace the Default Website
+# 📄 Replace the Default Website
 
 Delete the default IIS homepage:
 
@@ -316,7 +316,7 @@ C:\inetpub\wwwroot\
 
 ---
 
-# 🌍 Step 9: Test Your Website
+# 🌍 Test Your Website
 
 Open your browser.
 
@@ -335,160 +335,6 @@ http://13.233.xxx.xxx
 Your static website should now load successfully.
 
 ---
-
-# 📂 Project Structure
-
-```text
-windows-ec2-iis-website/
-│
-├── README.md
-├── index.html
-├── style.css
-├── script.js
-├── images/
-└── screenshots/
-    ├── 01-launch-instance.png
-    ├── 02-security-group.png
-    ├── 03-rdp-login.png
-    ├── 04-install-iis.png
-    ├── 05-iis-homepage.png
-    └── 06-final-website.png
-```
-
----
-
-# 🔍 Verification Checklist
-
-- ✅ EC2 instance is running.
-- ✅ Security Group allows ports **3389**, **80**, and **443**.
-- ✅ Successfully connected using Remote Desktop.
-- ✅ IIS is installed.
-- ✅ IIS Welcome Page is accessible.
-- ✅ Website files are copied to `C:\inetpub\wwwroot`.
-- ✅ Website loads successfully using the Public IP.
-
----
-
-# 📚 Learning Outcomes
-
-After completing this project, you will understand:
-
-- How to launch a Windows EC2 instance
-- How to configure Security Groups
-- How to retrieve the Windows Administrator password
-- How to connect using Remote Desktop (RDP)
-- How to install and configure IIS
-- How to host a static website on Windows Server
-- Basic Windows Server administration on AWS
-
----
-
-# 🎯 Interview Questions
-
-### 1. What is Amazon EC2?
-
-### 2. What is IIS?
-
-**Answer:**
-
-Internet Information Services (IIS) is Microsoft's web server used to host websites and web applications on Windows Server.
-
----
-
-### 3. What is the default website folder in IIS?
-
-**Answer:**
-
-```text
-C:\inetpub\wwwroot
-```
-
----
-
-### 4. Which port does HTTP use?
-
-**Answer:**
-
-```text
-80
-```
-
----
-
-### 5. Which port does HTTPS use?
-
-**Answer:**
-
-```text
-443
-```
-
----
-
-### 6. Which port is used for Remote Desktop (RDP)?
-
-**Answer:**
-
-```text
-3389
-```
-
----
-
-### 7. How do you retrieve the Windows Administrator password for an EC2 instance?
-
-**Answer:**
-
-Go to:
-
-```text
-EC2
-→ Select Instance
-→ Actions
-→ Security
-→ Get Windows Password
-```
-
-Upload the `.pem` key to decrypt the Administrator password.
-
----
-
-### 8. How do you enable HTTPS on an IIS website?
-
-**Answer:**
-
-- Install an SSL/TLS certificate.
-- Open **IIS Manager**.
-- Select the website.
-- Click **Bindings**.
-- Add an **HTTPS** binding using port **443** and assign the SSL certificate.
-
----
-
-### 9. Where are IIS log files stored?
-
-**Answer:**
-
-```text
-C:\inetpub\logs\LogFiles
-```
-
----
-
-### 10. What is the purpose of a Security Group?
-
-**Answer:**
-
-A Security Group acts as a virtual firewall that controls inbound and outbound traffic to an EC2 instance.
-
----
-
-# 🏆 Conclusion
-
-In this project, you launched a Windows Server EC2 instance, configured networking and security, connected using Remote Desktop, installed IIS, deployed a static website, and made it accessible over the internet. This project provides hands-on experience with Windows-based web hosting on AWS and builds a strong foundation for cloud and DevOps roles.
-
----
-
 ## 👨‍💻 Author
 
 **Rohit Tambadkar**
