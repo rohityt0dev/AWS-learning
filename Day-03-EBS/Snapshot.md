@@ -48,7 +48,7 @@ Create New Volume
 
 ---
 
-# 🚀 Lab 1 – Create an EBS Snapshot
+# 🚀 Create an EBS Snapshot
 
 ## Open the EC2 Console
 
@@ -129,7 +129,7 @@ The snapshot is now ready to be used.
 
 ---
 
-# 🔄 Lab 2 – Restore an EBS Volume from a Snapshot
+# 🔄 Restore an EBS Volume from a Snapshot
 
 ## Step 1
 
@@ -183,7 +183,7 @@ After attaching:
 
 ---
 
-# 🗑️ Lab 4 – Delete an EBS Snapshot
+# 🗑️ Delete an EBS Snapshot
 
 ## Step 1
 
