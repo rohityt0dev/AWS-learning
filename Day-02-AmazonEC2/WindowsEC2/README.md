@@ -1,10 +1,10 @@
-# 🌐 Project 02: Host a Static Website on Windows Server EC2 using IIS
+# 🌐  Host a Static Website on Windows Server EC2 using IIS
 
 Deploy a static website on a **Windows Server EC2 instance** using **Internet Information Services (IIS)**. This project introduces Windows Server administration on AWS, Remote Desktop (RDP), IIS configuration, and website hosting.
 
 ---
 
-# 🎯 Project Goal
+# 🎯 Goal
 
 Launch a Windows Server EC2 instance, install Internet Information Services (IIS), deploy a static HTML website, and access it over the internet using the instance's public IP address.
 
@@ -335,8 +335,3 @@ http://13.233.xxx.xxx
 Your static website should now load successfully.
 
 ---
-## 👨‍💻 Author
-
-**Rohit Tambadkar**
-
-Learning **AWS | DevOps | Windows Server | Linux | Docker | Kubernetes | Terraform**
