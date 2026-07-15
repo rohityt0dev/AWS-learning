@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rohit Tambadkar | DevOps Engineer — AWS · Terraform · Kubernetes</title>
+  <meta name="description" content="Rohit Yashwant Tambadkar — Entry-level DevOps Engineer specializing in AWS, Terraform, Kubernetes, Docker and CI/CD automation. Based in Mumbai, India." />
+  <meta name="keywords" content="DevOps Engineer, AWS, Terraform, Kubernetes, Docker, CI/CD, Jenkins, Cloud Infrastructure, Rohit Tambadkar" />
+  <meta name="author" content="Rohit Yashwant Tambadkar" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Rohit Tambadkar | DevOps Engineer" />
+  <meta property="og:description" content="AWS · Terraform · Kubernetes · Docker · CI/CD — Portfolio of Rohit Yashwant Tambadkar" />
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚙️</text></svg>" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ============ LOADER ============ -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-terminal">
+      <span class="loader-line">$ booting portfolio<span class="loader-dots"></span></span>
+      <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+    </div>
+  </div>
+
+  <!-- ============ SCROLL PROGRESS ============ -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- ============ NAV ============ -->
+  <header class="navbar" id="navbar">
+    <div class="navbar-inner">
+      <a href="#hero" class="brand" aria-label="Home">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span class="brand-text">rohit<span class="accent">@</span>devops<span class="accent">:~$</span></span>
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#about" class="nav-link"><span class="nav-key">01</span>about</a>
+        <a href="#skills" class="nav-link"><span class="nav-key">02</span>skills</a>
+        <a href="#experience" class="nav-link"><span class="nav-key">03</span>experience</a>
+        <a href="#projects" class="nav-link"><span class="nav-key">04</span>projects</a>
+        <a href="#certifications" class="nav-link"><span class="nav-key">05</span>certs</a>
+        <a href="#education" class="nav-link"><span class="nav-key">06</span>education</a>
+        <a href="#contact" class="nav-link"><span class="nav-key">07</span>contact</a>
+      </nav>
+
+      <div class="navbar-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark and light mode">
+          <i class="fa-solid fa-moon" id="themeIcon"></i>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="hero">
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <div class="hero-content">
+        <p class="eyebrow mono">~/portfolio $ whoami</p>
+        <h1 class="hero-name">Rohit Yashwant<br><span class="gradient-text">Tambadkar</span></h1>
+        <h2 class="hero-role mono">
+          <span id="typedRole"></span><span class="cursor">|</span>
+        </h2>
+        <p class="hero-intro">
+          Motivated, detail-oriented entry-level DevOps Engineer with hands-on experience across
+          AWS, Linux, Docker, Kubernetes and Terraform — passionate about automating infrastructure
+          and shipping reliable, scalable systems.
+        </p>
+        <div class="hero-actions">
+          <a href="assets/Rohit-Tambadkar-Resume.pdf" class="btn btn-primary" download>
+            <i class="fa-solid fa-download"></i> Download Résumé
+          </a>
+          <a href="#contact" class="btn btn-outline">
+            <i class="fa-solid fa-paper-plane"></i> Hire Me
+          </a>
+          <a href="mailto:rohityt0@gmail.com" class="btn btn-ghost">
+            <i class="fa-solid fa-envelope"></i> Contact
+          </a>
+        </div>
+        <div class="hero-socials">
+          <a href="https://github.com/rohit0dev" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="https://linkedin.com/in/rohit-tambadkar" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="https://hashnode.com/@ron16" target="_blank" rel="noopener" aria-label="Hashnode Blog"><i class="fa-solid fa-blog"></i></a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="avatar-frame">
+          <!-- PLACEHOLDER: replace with your real photo -->
+          <div class="avatar-placeholder">
+            <i class="fa-solid fa-user-astronaut"></i>
+            <span class="placeholder-tag">Add your photo</span>
+          </div>
+          <span class="badge-online"><span class="status-dot"></span> Available for hire</span>
+        </div>
+
+        <div class="terminal-window" role="img" aria-label="Simulated deployment terminal">
+          <div class="terminal-titlebar">
+            <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+            <span class="terminal-title mono">deploy.sh</span>
+          </div>
+          <pre class="terminal-body mono" id="terminalBody"></pre>
+        </div>
+      </div>
+    </div>
+    <a href="#about" class="scroll-cue" aria-label="Scroll down"><i class="fa-solid fa-chevron-down"></i></a>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="section" id="about">
+    <div class="section-inner">
+      <p class="eyebrow mono">section: about</p>
+      <h2 class="section-title">About Me</h2>
+
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p>
+            I'm an entry-level DevOps Engineer based in Mumbai, India, focused on Infrastructure as Code,
+            containerization, and CI/CD automation. I enjoy provisioning cloud infrastructure with Terraform,
+            containerizing applications with Docker, and orchestrating them with Kubernetes — turning manual,
+            error-prone processes into repeatable, version-controlled workflows.
+          </p>
+          <p>
+            <strong>Why DevOps?</strong> I'm drawn to the discipline where software engineering meets systems
+            reliability — where a single well-written script or Terraform module can eliminate hours of manual
+            work and make deployments predictable. I want to keep building toward highly available, observable,
+            and automated cloud systems.
+          </p>
+          <p>
+            <strong>Career objective:</strong> To contribute to automation, CI/CD pipelines, and scalable cloud
+            deployments within a collaborative engineering team, while continuously growing my expertise in
+            AWS, Kubernetes, and platform reliability.
+          </p>
+        </div>
+
+        <div class="about-counters reveal">
+          <div class="counter-card">
+            <span class="counter" data-target="5">0</span><span class="counter-suffix">+</span>
+            <p>Personal Projects Shipped</p>
+          </div>
+          <div class="counter-card">
+            <span class="counter" data-target="80">0</span><span class="counter-suffix">%</span>
+            <p>Provisioning Time Reduced (Terraform)</p>
+          </div>
+          <div class="counter-card">
+            <span class="counter" data-target="70">0</span><span class="counter-suffix">%</span>
+            <p>Faster Build-to-Deploy (Jenkins CI/CD)</p>
+          </div>
+          <div class="counter-card">
+            <span class="counter" data-target="10">0</span><span class="counter-suffix">+</span>
+            <p>Cloud &amp; DevOps Tools Used</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SKILLS ============ -->
+  <section class="section section-alt" id="skills">
+    <div class="section-inner">
+      <p class="eyebrow mono">section: skills</p>
+      <h2 class="section-title">Technical Skills</h2>
+      <p class="section-subtitle">Resource meters reflect hands-on, project-tested proficiency — not certifications.</p>
+
+      <div class="skills-grid" id="skillsGrid">
+        <!-- Filled by JS from a data array; see script.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EXPERIENCE ============ -->
+  <section class="section" id="experience">
+    <div class="section-inner">
+      <p class="eyebrow mono">section: experience</p>
+      <h2 class="section-title">Experience</h2>
+
+      <div class="timeline">
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <span class="timeline-date mono">[Add dates]</span>
+            <h3>DevOps &amp; Cloud Computing Trainee</h3>
+            <h4>Insys Technologies, Thane — Mumbai, India</h4>
+            <ul>
+              <li>Received hands-on training in cloud computing fundamentals, AWS services, and DevOps tooling.</li>
+              <li>Gained practical exposure to containerization, infrastructure automation, and continuous delivery workflows.</li>
+            </ul>
+            <div class="tech-tags">
+              <span>AWS</span><span>Docker</span><span>Kubernetes</span><span>CI/CD</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal placeholder-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card placeholder-card">
+            <span class="timeline-date mono">[Add dates]</span>
+            <h3>[Add your first professional role]</h3>
+            <h4>[Company name] — [Location]</h4>
+            <p class="placeholder-note"><i class="fa-solid fa-pen"></i> This slot is a placeholder — no employer role was listed on your résumé. Replace with your next position, internship, or freelance client work.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROJECTS ============ -->
+  <section class="section section-alt" id="projects">
+    <div class="section-inner">
+      <p class="eyebrow mono">section: projects</p>
+      <h2 class="section-title">Featured Projects</h2>
+
+      <div class="projects-grid" id="projectsGrid">
+        <!-- Filled by JS from a data array -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CERTIFICATIONS ============ -->
+  <section class="section" id="certifications">
+    <div class="section-inner">
+      <p class="eyebrow mono">section: certifications</p>
+      <h2 class="section-title">Training &amp; Certifications</h2>
+
+      <div class="cert-grid">
+        <div class="cert-card reveal">
+          <div class="cert-icon"><i class="fa-solid fa-certificate"></i></div>
+          <h3>DevOps &amp; Cloud Computing Training</h3>
+          <p class="cert-org">Insys Technologies, Thane — Mumbai, India</p>
+          <p>Hands-on training in cloud computing fundamentals, AWS services, DevOps tools, and CI/CD best practices, with practical exposure to containerization and infrastructure automation.</p>
+        </div>
+
+        <div class="cert-card placeholder-card reveal">
+          <div class="cert-icon"><i class="fa-solid fa-plus"></i></div>
+          <h3>[Add certification]</h3>
+          <p class="cert-org">e.g. AWS Certified Solutions Architect, CKA, Terraform Associate</p>
+          <p class="placeholder-note"><i class="fa-solid fa-pen"></i> No formal certifications were listed on your résumé — this is a strong next step for standing out to recruiters.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EDUCATION ============ -->
+  <section class="section section-alt" id="education">
+    <div class="section-inner">
+      <p class="eyebrow mono">section: education</p>
+      <h2 class="section-title">Education</h2>
+
+      <div class="timeline">
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <span class="timeline-date mono">[Add graduation year]</span>
+            <h3>Bachelor of Engineering — Electrical Engineering</h3>
+            <h4>Indala College of Engineering, Mumbai University</h4>
+            <p>CGPA: <strong>7.14 / 10.0</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ACHIEVEMENTS ============ -->
+  <section class="section" id="achievements">
+    <div class="section-inner">
+      <p class="eyebrow mono">section: achievements</p>
+      <h2 class="section-title">Achievements</h2>
+
+      <div class="achievements-grid">
+        <div class="achievement-card placeholder-card reveal">
+          <i class="fa-solid fa-trophy"></i>
+          <h3>[Add an achievement]</h3>
+          <p class="placeholder-note">e.g. hackathon wins, published blog milestones, open-source contributions, AWS credits earned.</p>
+        </div>
+        <div class="achievement-card placeholder-card reveal">
+          <i class="fa-solid fa-medal"></i>
+          <h3>[Add an achievement]</h3>
+          <p class="placeholder-note">No achievements were listed on your résumé — this section is ready whenever you have them.</p>
+        </div>
+        <div class="achievement-card reveal">
+          <i class="fa-solid fa-blog"></i>
+          <h3>Active Technical Blogger</h3>
+          <p>Writes and publishes DevOps &amp; CI/CD walkthroughs on Hashnode, including a documented Maven/Jenkins pipeline build.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="section section-alt" id="contact">
+    <div class="section-inner">
+      <p class="eyebrow mono">section: contact</p>
+      <h2 class="section-title">Let's Build Something Reliable</h2>
+      <p class="section-subtitle">Open to entry-level DevOps, Cloud, and Site Reliability roles.</p>
+
+      <div class="contact-grid">
+        <a href="mailto:rohityt0@gmail.com" class="contact-card reveal">
+          <i class="fa-solid fa-envelope"></i>
+          <span class="contact-label">Email</span>
+          <span class="contact-value">rohityt0@gmail.com</span>
+        </a>
+        <a href="tel:+918208834440" class="contact-card reveal">
+          <i class="fa-solid fa-phone"></i>
+          <span class="contact-label">Phone</span>
+          <span class="contact-value">+91 82088 34440</span>
+        </a>
+        <a href="https://linkedin.com/in/rohit-tambadkar" target="_blank" rel="noopener" class="contact-card reveal">
+          <i class="fa-brands fa-linkedin"></i>
+          <span class="contact-label">LinkedIn</span>
+          <span class="contact-value">/in/rohit-tambadkar</span>
+        </a>
+        <a href="https://github.com/rohit0dev" target="_blank" rel="noopener" class="contact-card reveal">
+          <i class="fa-brands fa-github"></i>
+          <span class="contact-label">GitHub</span>
+          <span class="contact-value">github.com/rohit0dev</span>
+        </a>
+        <div class="contact-card no-link reveal">
+          <i class="fa-solid fa-location-dot"></i>
+          <span class="contact-label">Location</span>
+          <span class="contact-value">Mumbai, India</span>
+        </div>
+        <a href="https://hashnode.com/@ron16" target="_blank" rel="noopener" class="contact-card reveal">
+          <i class="fa-solid fa-blog"></i>
+          <span class="contact-label">Blog</span>
+          <span class="contact-value">hashnode.com/@ron16</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <p class="mono">rohit@devops:~$ echo "Thanks for scrolling."</p>
+      <p>&copy; <span id="year"></span> Rohit Yashwant Tambadkar. Built with HTML, CSS &amp; JavaScript — no frameworks.</p>
+      <div class="footer-socials">
+        <a href="https://github.com/rohit0dev" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a href="https://linkedin.com/in/rohit-tambadkar" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://hashnode.com/@ron16" target="_blank" rel="noopener" aria-label="Blog"><i class="fa-solid fa-blog"></i></a>
+        <a href="mailto:rohityt0@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
