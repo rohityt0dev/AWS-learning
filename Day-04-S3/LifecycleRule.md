@@ -89,7 +89,7 @@ This helps reduce storage costs while keeping data available when needed.
 
 # 🚀 Lab: Create an S3 Lifecycle Rule
 
-## Step 1: Open Amazon S3
+## Open Amazon S3
 
 1. Sign in to the **AWS Management Console**.
 2. Navigate to **Amazon S3**.
@@ -97,7 +97,7 @@ This helps reduce storage costs while keeping data available when needed.
 
 ---
 
-## Step 2: Open the Management Tab
+## Open the Management Tab
 
 Navigate to:
 
@@ -115,19 +115,19 @@ Create lifecycle rule
 
 ---
 
-## Step 3: Enter the Rule Name
+## Enter the Rule Name
 
 Provide a descriptive name.
 
 Example:
 
 ```text
-archive-old-files
+Lifecycle-rule
 ```
 
 ---
 
-## Step 4: Choose the Rule Scope
+## Choose the Rule Scope
 
 Select where the rule should apply.
 
@@ -172,7 +172,7 @@ Choose one or more actions.
 
 ---
 
-## Step 6: Configure the Transition Schedule
+## Configure the Transition Schedule
 
 Example configuration:
 
@@ -184,7 +184,7 @@ Example configuration:
 
 ---
 
-## Step 7: Create the Rule
+## Create the Rule
 
 Review all settings.
 
