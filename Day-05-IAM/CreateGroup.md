@@ -41,7 +41,7 @@ This lab demonstrates how to create an **IAM User Group** in AWS and attach perm
 
 ---
 
-# 🚀 Step 1: Open IAM
+# 🚀 Open IAM
 
 1. Sign in to the **AWS Management Console**.
 2. In the search bar, type:
@@ -54,7 +54,7 @@ IAM
 
 ---
 
-# 👥 Step 2: Open User Groups
+# 👥 Open User Groups
 
 In the left navigation pane, click:
 
@@ -82,14 +82,14 @@ IAM
 
 ---
 
-# 📝 Step 3: Enter the Group Name
+# 📝 Enter the Group Name
 
 Enter a meaningful name for the group.
 
 Example:
 
 ```text
-DevOps-Team
+DevOps
 ```
 
 Other examples:
@@ -97,10 +97,7 @@ Other examples:
 ```text
 Admins
 Developers
-QA-Team
 Finance
-Security
-Support
 ```
 
 Click:
@@ -111,7 +108,7 @@ Next
 
 ---
 
-# 👤 Step 4: Add Users (Optional)
+#  Add Users (Optional)
 
 AWS allows you to add existing IAM users to the group.
 
@@ -132,11 +129,11 @@ You can add users to the group later at any time.
 
 ---
 
-# 🔐 Step 5: Attach Permissions
+# 🔐 Attach Permissions
 
 Attach IAM policies that define what users in this group can access.
 
-### Example: DevOps Team
+### Example: DevOps
 
 Select the following managed policies:
 
@@ -164,7 +161,7 @@ Next
 
 ---
 
-# 📋 Step 6: Review and Create
+# 📋 Review and Create
 
 Review the configuration.
 
@@ -172,10 +169,10 @@ Example:
 
 ```text
 Group Name:
-DevOps-Team
+DevOps
 
 Users:
-None
+rohit
 
 Policies:
 AmazonEC2FullAccess
