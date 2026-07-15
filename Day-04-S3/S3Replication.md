@@ -43,23 +43,23 @@ Amazon S3 Replication automatically copies objects from one S3 bucket to another
 
 ---
 
-# 🚀 Step 1: Create Two S3 Buckets
+# 🚀 Create Two S3 Buckets
 
 Create the following buckets.
 
 Example:
 
 ```text
-source-demo-bucket
+web-host-page-resume-01
 
-destination-demo-bucket
+web-host-page-resume-01-replica
 ```
 
 > Bucket names must be globally unique.
 
 ---
 
-# 🔄 Step 2: Enable Bucket Versioning
+# 🔄 Enable Bucket Versioning
 
 Versioning must be enabled on **both** buckets.
 
@@ -82,7 +82,7 @@ Repeat the same steps for both:
 
 ---
 
-# 📂 Step 3: Open the Source Bucket
+# 📂 Open the Source Bucket
 
 Open the **Source Bucket**.
 
@@ -98,19 +98,19 @@ Create Replication Rule
 
 ---
 
-# 📝 Step 4: Enter a Replication Rule Name
+# 📝 Enter a Replication Rule Name
 
 Provide a name for the replication rule.
 
 Example:
 
 ```text
-replicate-all-objects
+replication-rule
 ```
 
 ---
 
-# 📦 Step 5: Select the Objects to Replicate
+# 📦 Select the Objects to Replicate
 
 Choose one of the following options:
 
@@ -142,7 +142,7 @@ Only objects stored inside the **images/** folder will be replicated.
 
 ---
 
-# 🎯 Step 6: Select the Destination Bucket
+# 🎯 Select the Destination Bucket
 
 Under **Destination**, choose:
 
@@ -159,12 +159,12 @@ Existing Bucket
 Choose:
 
 ```text
-destination-demo-bucket
+web-host-page-resume-01-replica
 ```
 
 ---
 
-# 🔐 Step 7: Configure the IAM Role
+# 🔐 Configure the IAM Role
 
 For IAM Role, choose:
 
@@ -176,7 +176,7 @@ AWS automatically creates the required IAM role with the necessary permissions f
 
 ---
 
-# 💾 Step 8: Save the Replication Rule
+# 💾 Save the Replication Rule
 
 Click:
 
@@ -188,7 +188,7 @@ Amazon S3 Replication is now enabled.
 
 ---
 
-# 🧪 Step 9: Test Replication
+# 🧪 Test Replication
 
 Upload a file to the **Source Bucket**.
 
