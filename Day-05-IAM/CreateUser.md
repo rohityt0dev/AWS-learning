@@ -39,7 +39,7 @@ This lab demonstrates how to create a new **IAM (Identity and Access Management)
 
 ---
 
-# 🚀 Step 1: Sign in to AWS
+# 🚀 Sign in to AWS
 
 1. Sign in to the **AWS Management Console**.
 2. In the search bar, type:
@@ -52,7 +52,7 @@ IAM
 
 ---
 
-# 👤 Step 2: Create an IAM User
+# 👤 Create an IAM User
 
 Navigate to:
 
@@ -66,7 +66,7 @@ Create user
 
 ---
 
-# 📝 Step 3: Enter User Details
+# 📝 Enter User Details
 
 Enter the user name.
 
@@ -84,7 +84,7 @@ Next
 
 ---
 
-# 🔐 Step 4: Set Permissions
+# 🔐 Set Permissions
 
 Since you are only creating a user, you can:
 
@@ -108,7 +108,7 @@ The IAM user is now created.
 
 ---
 
-# 🖥️ Step 5: Enable AWS Management Console Access
+# 🖥️ Enable AWS Management Console Access
 
 If the user needs to log in to the AWS Management Console:
 
