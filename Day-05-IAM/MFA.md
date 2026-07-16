@@ -63,7 +63,7 @@ This significantly improves account security.
 
 ---
 
-# 🚀 Step 1: Sign in to AWS
+# 🚀 Sign in to AWS
 
 1. Sign in to the **AWS Management Console**.
 2. Search for:
@@ -76,7 +76,7 @@ IAM
 
 ---
 
-# 👤 Step 2: Open Users
+# 👤 Open Users
 
 Navigate to:
 
@@ -94,7 +94,7 @@ Select the IAM user.
 
 ---
 
-# 🔐 Step 3: Open Security Credentials
+# 🔐 Open Security Credentials
 
 Select the user.
 
@@ -112,7 +112,7 @@ You will see sections such as:
 
 ---
 
-# 📲 Step 4: Assign an MFA Device
+# 📲 Assign an MFA Device
 
 Under:
 
@@ -128,7 +128,7 @@ Assign MFA device
 
 ---
 
-# 📱 Step 5: Choose the MFA Device Type
+# 📱 Choose the MFA Device Type
 
 For most users, select:
 
@@ -144,7 +144,7 @@ Next
 
 ---
 
-# 📥 Step 6: Install an Authenticator App
+# 📥 Install an Authenticator App
 
 Install one of the following apps on your mobile device if you do not already have one:
 
@@ -154,7 +154,7 @@ Install one of the following apps on your mobile device if you do not already ha
 
 ---
 
-# 📷 Step 7: Scan the QR Code
+# 📷 Scan the QR Code
 
 AWS displays:
 
@@ -183,7 +183,7 @@ AWS Account
 
 ---
 
-# 🔢 Step 8: Enter Two Consecutive Codes
+# 🔢 Enter Two Consecutive Codes
 
 AWS asks for:
 
@@ -204,7 +204,7 @@ Add MFA
 
 ---
 
-# ✅ Step 9: Verify MFA Status
+# ✅ Verify MFA Status
 
 After successful configuration, you should see:
 
