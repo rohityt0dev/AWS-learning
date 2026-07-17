@@ -135,23 +135,6 @@ Benefits:
 
 ---
 
-# 🌐 Federated Access
-
-IAM supports federation with external identity providers such as:
-
-- Microsoft Active Directory
-- AWS IAM Identity Center
-- SAML Providers
-- OpenID Connect (OIDC)
-
-Benefits:
-
-- Centralized user management
-- Single Sign-On (SSO)
-- No need to create separate IAM users
-
----
-
 # 🔍 Policy Evaluation Logic
 
 AWS evaluates permissions using the following order:
