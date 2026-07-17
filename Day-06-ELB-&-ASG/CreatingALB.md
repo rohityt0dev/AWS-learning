@@ -41,14 +41,14 @@ An **Application Load Balancer (ALB)** is an Elastic Load Balancer that distribu
         │                               │
         ▼                               ▼
    EC2 Instance 1                  EC2 Instance 2
- AZ: ap-south-1a                 AZ: ap-south-1b
+ AZ: ap-south-1a                 AZ: ap-south-1a
         │                               │
  Apache Web Server              Apache Web Server
 ```
 
 ---
 
-# 🚀 Step 1: Open the EC2 Dashboard
+# 🚀 Open the EC2 Dashboard
 
 1. Sign in to the **AWS Management Console**.
 2. Navigate to **Amazon EC2**.
