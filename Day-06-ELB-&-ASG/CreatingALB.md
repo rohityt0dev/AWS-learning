@@ -66,7 +66,7 @@ Create Load Balancer
 
 ---
 
-# 🌐 Step 2: Choose the Load Balancer Type
+# 🌐 Choose the Load Balancer Type
 
 Select:
 
@@ -82,20 +82,20 @@ Create
 
 ---
 
-# ⚙️ Step 3: Basic Configuration
+# ⚙️ Basic Configuration
 
 Configure the following settings.
 
 | Setting | Value |
 |----------|-------|
-| Name | my-alb |
+| Name | webserver-LB |
 | Scheme | Internet-facing |
 | IP Address Type | IPv4 |
 | Load Balancer Type | Application Load Balancer |
 
 ---
 
-# 🌍 Step 4: Configure Network Mapping
+# 🌍 Configure Network Mapping
 
 Choose the VPC where your EC2 instances are running.
 
@@ -114,7 +114,7 @@ Enable at least **two Availability Zones**.
 
 ---
 
-# 🔐 Step 5: Configure the Security Group
+# 🔐 Configure the Security Group
 
 Create a new Security Group or select an existing one.
 
@@ -132,7 +132,7 @@ Create a new Security Group or select an existing one.
 
 ---
 
-# 🎯 Step 6: Create a Target Group
+# 🎯 Create a Target Group
 
 Click:
 
@@ -145,7 +145,7 @@ Configure the Target Group.
 | Setting | Value |
 |----------|-------|
 | Target Type | Instances |
-| Name | web-target-group |
+| Name | webserver-LB-TG |
 | Protocol | HTTP |
 | Port | 80 |
 | VPC | Same VPC as EC2 Instances |
@@ -158,7 +158,7 @@ Next
 
 ---
 
-# ❤️ Step 7: Configure Health Checks
+#  Configure Health Checks
 
 Configure the Health Check settings.
 
@@ -166,8 +166,6 @@ Configure the Health Check settings.
 |----------|-------|
 | Protocol | HTTP |
 | Path | `/` (or `/health`) |
-| Healthy Threshold | 2 |
-| Unhealthy Threshold | 2 |
 | Timeout | 5 Seconds |
 | Interval | 30 Seconds |
 
@@ -179,7 +177,7 @@ Next
 
 ---
 
-# 🖥️ Step 8: Register Targets
+# 🖥️ Register Targets
 
 Select the EC2 instances.
 
@@ -203,7 +201,7 @@ Create Target Group
 
 ---
 
-# 🔗 Step 9: Attach the Target Group
+# 🔗 Attach the Target Group
 
 Return to the ALB creation page.
 
@@ -221,7 +219,7 @@ Create Load Balancer
 
 ---
 
-# ⏳ Step 10: Wait for Provisioning
+# ⏳ Wait for Provisioning
 
 The ALB status will initially be:
 
@@ -237,7 +235,7 @@ Active
 
 ---
 
-# 🌍 Step 11: Access the Load Balancer
+# 🌍 Access the Load Balancer
 
 Copy the **DNS Name** of the ALB.
 
@@ -255,7 +253,7 @@ http://my-alb-123456789.ap-south-1.elb.amazonaws.com
 
 ---
 
-# 🧪 Step 12: Test Load Balancing
+# 🧪 Test Load Balancing
 
 Refresh the page several times.
 
