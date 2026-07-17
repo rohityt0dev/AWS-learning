@@ -1,6 +1,6 @@
 # ⚖️ Lab: Deploy Two EC2 Instances Behind an Elastic Load Balancer (ELB)
 
-This lab demonstrates how to deploy **two Amazon EC2 instances** across different **Availability Zones (AZs)** and distribute incoming traffic using an **Application Load Balancer (ALB)**.
+This lab demonstrates how to deploy **two Amazon EC2 instances** in **Availability Zones (AZs)** and distribute incoming traffic using an **Application Load Balancer (ALB)**.
 
 Using multiple EC2 instances improves **High Availability**, **Fault Tolerance**, and **Scalability** by ensuring that if one instance becomes unavailable, traffic is automatically routed to the healthy instance.
 
@@ -45,7 +45,7 @@ Using multiple EC2 instances improves **High Availability**, **Fault Tolerance**
 
 ---
 
-# 🚀 Step 1: Launch EC2 Instance 1
+# 🚀 Launch EC2 Instance (minimum 2 instance)
 
 Navigate to:
 
@@ -61,10 +61,10 @@ Configure the instance.
 
 | Setting | Value |
 |----------|-------|
-| Name | web-server-1 |
+| Name | web-server-1/2 |
 | AMI | Amazon Linux 2023 |
 | Instance Type | t2.micro |
-| Key Pair | Existing Key Pair (Example: my-key) |
+| Key Pair | Existing Key Pair (Example: key) |
 | VPC | Default VPC (or Custom VPC) |
 | Subnet | Public Subnet A (Example: ap-south-1a) |
 | Auto Assign Public IP | Enable |
@@ -88,12 +88,6 @@ Create a new Security Group.
 | Type | Destination |
 |------|-------------|
 | All Traffic | 0.0.0.0/0 |
-
-Click:
-
-```text
-Launch Instance
-```
 
 ---
 
@@ -128,6 +122,11 @@ This script automatically:
 - Enables Apache to start automatically after reboot
 - Creates a simple webpage displaying the EC2 hostname
 
+Click:
+
+```text
+Launch Instance
+```
 ---
 
 # ✅ Expected Result
