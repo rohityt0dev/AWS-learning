@@ -42,7 +42,7 @@ AWS CLI enables you to automate tasks, manage AWS resources, and build scripts f
 
 ---
 
-# 🚀 Step 1: Install AWS CLI
+# 🚀 Install AWS CLI
 
 ## Windows
 
@@ -98,7 +98,7 @@ aws-cli/2.x.x Python/3.x Linux/x86_64
 
 ---
 
-# 🔑 Step 2: Create an IAM User with Access Keys
+# 🔑 Create an IAM User with Access Keys
 
 Navigate to:
 
@@ -138,7 +138,7 @@ wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 
 ---
 
-# ⚙️ Step 3: Configure AWS CLI
+# ⚙️ Configure AWS CLI
 
 Run:
 
