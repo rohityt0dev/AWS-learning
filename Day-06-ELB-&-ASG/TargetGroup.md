@@ -44,7 +44,7 @@ An **Amazon EC2 Target Group** is a collection of resources (such as EC2 instanc
 
 ---
 
-# 🚀 Step 1: Open the EC2 Console
+# 🚀 Open the EC2 Console
 
 1. Sign in to the **AWS Management Console**.
 2. Navigate to **Amazon EC2**.
@@ -62,7 +62,7 @@ Create target group
 
 ---
 
-# 🎯 Step 2: Choose the Target Type
+# 🎯 Choose the Target Type
 
 Select:
 
@@ -91,7 +91,7 @@ Next
 
 ---
 
-# ⚙️ Step 3: Configure the Target Group
+# ⚙️ Configure the Target Group
 
 Configure the following settings.
 
@@ -111,7 +111,7 @@ Next
 
 ---
 
-# ❤️ Step 4: Configure Health Checks
+# ❤️ Configure Health Checks
 
 Health Checks allow the Load Balancer to determine whether each EC2 instance is healthy and able to receive traffic.
 
@@ -136,7 +136,7 @@ Next
 
 ---
 
-# ⚙️ Step 5: Advanced Health Check Settings (Optional)
+# ⚙️ Advanced Health Check Settings (Optional)
 
 Unless your application requires custom settings, leave the defaults.
 
@@ -154,7 +154,7 @@ Next
 
 ---
 
-# 🖥️ Step 6: Register EC2 Instances
+# 🖥️ Register EC2 Instances
 
 AWS displays the available EC2 instances.
 
@@ -186,7 +186,7 @@ Create target group
 
 ---
 
-# ✅ Step 7: Verify the Target Group
+# ✅ Verify the Target Group
 
 Open the newly created Target Group.
 
