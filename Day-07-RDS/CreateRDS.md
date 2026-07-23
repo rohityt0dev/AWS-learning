@@ -56,7 +56,7 @@ Before creating Amazon RDS, ensure the following resources already exist:
 
 ---
 
-# 🚀 Step 1: Open Amazon RDS
+# 🚀 Open Amazon RDS
 
 1. Sign in to the **AWS Management Console**.
 2. Search for:
@@ -74,7 +74,7 @@ Create database
 
 ---
 
-# ⚙️ Step 2: Choose Database Creation Method
+# ⚙️ Choose Database Creation Method
 
 Select:
 
@@ -100,7 +100,7 @@ Next
 
 ---
 
-# 🗃️ Step 3: Choose the Database Engine
+# 🗃️ Choose the Database Engine
 
 Select:
 
@@ -116,7 +116,7 @@ MySQL 8.0.x
 
 ---
 
-# 🧪 Step 4: Choose a Template
+# 🧪 Choose a Template
 
 Available Templates:
 
@@ -134,7 +134,7 @@ This automatically selects a smaller instance size to reduce costs.
 
 ---
 
-# 📝 Step 5: Configure Database Settings
+# 📝 Configure Database Settings
 
 Configure the database.
 
@@ -148,7 +148,7 @@ Configure the database.
 
 ---
 
-# 💻 Step 6: Configure the DB Instance
+# 💻 Configure the DB Instance
 
 Choose one of the following instance classes.
 
@@ -166,17 +166,16 @@ Choose whichever is available in your Region and Free Tier eligibility.
 
 ---
 
-# 💾 Step 7: Configure Storage
+# 💾 Configure Storage
 
 | Setting | Value |
 |----------|-------|
 | Storage Type | General Purpose SSD (gp3) |
 | Allocated Storage | 20 GB |
-| Storage Autoscaling | Enabled (Optional but Recommended) |
 
 ---
 
-# 🌐 Step 8: Configure Connectivity
+# 🌐 Configure Connectivity
 
 Choose your networking configuration.
 
@@ -195,7 +194,7 @@ Applications connect securely through an EC2 instance instead of exposing the da
 
 ---
 
-# 🔐 Step 9: Configure the Security Group
+# 🔐 Configure the Security Group
 
 Choose:
 
@@ -219,65 +218,16 @@ RDS-SG
 
 ---
 
-# 🔑 Step 10: Database Authentication
+# 🔑 Database Authentication
 
 Choose the default authentication method.
 
 ```text
 Password Authentication
 ```
-
 ---
 
-# ⚙️ Step 11: Additional Configuration
-
-### Initial Database Name
-
-Example:
-
-```text
-companydb
-```
-
-If left blank, databases can be created later after connecting.
-
-### Backup
-
-Enable:
-
-```text
-Automated Backups
-```
-
-Retention Period:
-
-```text
-7 Days
-```
-
-### Encryption
-
-Enable:
-
-```text
-AWS Managed KMS Key
-```
-
-Recommended for production environments.
-
-### Monitoring
-
-Keep the default settings for this lab.
-
-### Maintenance Window
-
-Leave the default settings.
-
-AWS performs maintenance and patches during the maintenance window.
-
----
-
-# ✅ Step 12: Review and Create
+# ✅ Review and Create
 
 Verify all configuration settings.
 
@@ -289,7 +239,7 @@ Create Database
 
 ---
 
-# ⏳ Step 13: Wait for Database Creation
+# ⏳ Wait for Database Creation
 
 The database status changes as follows:
 
@@ -309,7 +259,7 @@ This process usually takes several minutes.
 
 ---
 
-# 🌐 Step 14: Copy the Database Endpoint
+# 🌐 Copy the Database Endpoint
 
 Open the RDS instance.
 
@@ -331,7 +281,7 @@ my-rds-db.abc123xyz.us-east-1.rds.amazonaws.com
 
 ---
 
-# 💻 Step 15: Connect from an EC2 Instance
+# 💻 Connect from an EC2 Instance
 
 Connect to your EC2 instance.
 
@@ -361,7 +311,7 @@ Enter the database password when prompted.
 
 ---
 
-# 🧪 Step 16: Verify the Connection
+# 🧪 Verify the Connection
 
 Run:
 
@@ -375,7 +325,6 @@ Expected Output:
 +--------------------+
 | Database           |
 +--------------------+
-| companydb          |
 | information_schema |
 | mysql              |
 | performance_schema |
@@ -386,6 +335,12 @@ Expected Output:
 ---
 
 # 📝 Create a Sample Table
+
+Create the database.
+
+```sql
+CREATE DATABASE companydb;
+```
 
 Select the database.
 
