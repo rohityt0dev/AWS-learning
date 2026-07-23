@@ -56,7 +56,7 @@ Before creating the Network Load Balancer, ensure you already have:
 
 ---
 
-# 🚀 Step 1: Open the EC2 Console
+# 🚀 Open the EC2 Console
 
 1. Sign in to the **AWS Management Console**.
 2. Navigate to **Amazon EC2**.
@@ -74,7 +74,7 @@ Create Load Balancer
 
 ---
 
-# 🌐 Step 2: Choose the Load Balancer Type
+# 🌐 Choose the Load Balancer Type
 
 Select:
 
@@ -90,7 +90,7 @@ Create
 
 ---
 
-# ⚙️ Step 3: Configure Basic Settings
+# ⚙️ Configure Basic Settings
 
 Configure the following settings.
 
@@ -104,7 +104,7 @@ Configure the following settings.
 
 ---
 
-# 🌍 Step 4: Configure Network Mapping
+# 🌍 Configure Network Mapping
 
 Choose the VPC where your EC2 instances are running.
 
@@ -123,7 +123,7 @@ Next
 
 ---
 
-# 🎧 Step 5: Configure the Listener
+# 🎧 Configure the Listener
 
 Create a listener.
 
@@ -136,7 +136,7 @@ Create a listener.
 
 ---
 
-# 🎯 Step 6: Create a Target Group
+# 🎯 Create a Target Group
 
 Click:
 
@@ -162,7 +162,7 @@ Next
 
 ---
 
-# ❤️ Step 7: Configure Health Checks
+# ❤️ Configure Health Checks
 
 Although the NLB forwards **TCP** traffic, you can configure **HTTP** health checks for web applications.
 
@@ -187,7 +187,7 @@ Next
 
 ---
 
-# 🖥️ Step 8: Register Targets
+# 🖥️ Register Targets
 
 Select the EC2 instances.
 
@@ -211,7 +211,7 @@ Create Target Group
 
 ---
 
-# 🔗 Step 9: Attach the Target Group
+# 🔗 Attach the Target Group
 
 Return to the NLB creation page.
 
@@ -230,7 +230,7 @@ Create Load Balancer
 
 ---
 
-# ⏳ Step 10: Wait for the NLB to Become Active
+# ⏳ Wait for the NLB to Become Active
 
 Initially, the status will be:
 
@@ -246,7 +246,7 @@ Active
 
 ---
 
-# 🌍 Step 11: Test the Network Load Balancer
+# 🌍 Test the Network Load Balancer
 
 Copy the **DNS Name** of the Network Load Balancer.
 
