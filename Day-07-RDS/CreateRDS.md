@@ -471,4 +471,3 @@ Run SQL Queries
 - Never expose Amazon RDS directly to the Internet.
 - Monitor database performance using **Amazon CloudWatch**.
 - Rotate database credentials regularly and store them securely using **AWS Secrets Manager**.
-```
