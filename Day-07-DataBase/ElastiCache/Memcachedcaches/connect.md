@@ -1,6 +1,6 @@
 # Lab: Connect to an Amazon ElastiCache Memcached Cluster
 
-After creating a Memcached cluster, you can connect to it from an EC2 instance using the **Configuration Endpoint** or **Node Endpoint**. In this lab, you will use the **telnet** utility to test the connection and perform basic Memcached operations.
+After creating a Memcached cluster, you can connect to it from an EC2 instance using the **Configuration Endpoint** . In this lab, you will use the **telnet** utility to test the connection and perform basic Memcached operations.
 
 ---
 
@@ -49,7 +49,7 @@ Before connecting, ensure you have:
 
 ---
 
-# 🚀 Step 1: Connect to EC2
+# 🚀 Connect to EC2
 
 Connect to your EC2 instance.
 
@@ -59,7 +59,7 @@ ssh -i key.pem ec2-user@<EC2-Public-IP>
 
 ---
 
-# 🌐 Step 2: Find the Memcached Endpoint
+# 🌐 Find the Memcached Endpoint
 
 Open:
 
@@ -81,7 +81,7 @@ memcached-01.395i4v.cfg.aps1.cache.amazonaws.com:11211
 
 ---
 
-# 📦 Step 3: Install Telnet
+# 📦 Install Telnet
 
 Amazon Linux 2:
 
@@ -97,7 +97,7 @@ sudo dnf install telnet -y
 
 ---
 
-# 🔗 Step 4: Connect to Memcached
+# 🔗 Connect to Memcached
 
 Run:
 
@@ -122,7 +122,7 @@ Escape character is '^]'.
 
 ---
 
-# 🧪 Step 5: Test Memcached Commands
+# 🧪 Test Memcached Commands
 
 Store a value.
 
