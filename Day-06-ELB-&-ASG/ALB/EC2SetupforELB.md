@@ -1,161 +1,376 @@
-# ⚖️ Lab: Deploy Two EC2 Instances Behind an Elastic Load Balancer (ELB)
+# AWS Network Load Balancer (NLB) - Step-by-Step Lab Guide
 
-This lab demonstrates how to deploy **two Amazon EC2 instances** in **Availability Zones (AZs)** and distribute incoming traffic using an **Application Load Balancer (ALB)**.
-
-Using multiple EC2 instances improves **High Availability**, **Fault Tolerance**, and **Scalability** by ensuring that if one instance becomes unavailable, traffic is automatically routed to the healthy instance.
+This lab demonstrates how to create an **AWS Network Load Balancer (NLB)** to distribute **TCP traffic** across two EC2 instances running Apache Web Server.
 
 ---
 
 # 🎯 Objective
 
-- Launch two Amazon EC2 instances
-- Configure Apache Web Server using User Data
-- Deploy instances in different Availability Zones
-- Prepare the environment for an Application Load Balancer (ALB)
+After completing this lab, you will be able to:
+
+- Launch multiple EC2 instances
+- Install and configure Apache Web Server
+- Create a Target Group
+- Create a Network Load Balancer (NLB)
+- Register EC2 instances as targets
+- Verify health checks
+- Test TCP load balancing using the NLB DNS name
 
 ---
 
-# 🛠️ Services Used
+# 🛠️ AWS Services Used
 
 - Amazon EC2
-- Elastic Load Balancer (Application Load Balancer)
+- Network Load Balancer (NLB)
+- Target Groups
+- Amazon VPC
 - Security Groups
-- Amazon Linux 2023
 
 ---
 
 # 🏗️ Architecture
 
 ```text
-                   Internet
-                       │
-                       ▼
-         Application Load Balancer (ALB)
-                       │
-        ┌──────────────┴──────────────┐
-        │                             │
-        ▼                             ▼
-  EC2 Instance 1                EC2 Instance 2
- (Availability Zone A)      (Availability Zone B)
-        │                             │
-        └──────────────┬──────────────┘
-                       │
-               Security Group
+                    Internet
+                        │
+                        ▼
+        Network Load Balancer (TCP : 80)
+                        │
+            ┌───────────┴───────────┐
+            ▼                       ▼
+     EC2@LB-01                 EC2@LB-02
+    Apache Server             Apache Server
+   "Welcome Server 1"       "Welcome Server 2"
 ```
 
 ---
 
-# 🚀 Launch EC2 Instance (minimum 2 instance)
+# ✅ Prerequisites
+
+Before starting this lab, ensure you have:
+
+- AWS Account
+- Existing VPC
+- Two Public Subnets (or more)
+- EC2 Key Pair
+- Internet Gateway
+- Security Group
+
+---
+
+# 🚀 Launch EC2 Instances
+
+Launch **2 Amazon Linux EC2 instances**.
+
+| Instance | Name |
+|----------|------|
+| EC2-1 | EC2@LB-01 |
+| EC2-2 | EC2@LB-02 |
+
+Verify both instances are in the **Running** state.
+
+---
+
+# 🚀 Install Apache Web Server
+
+Connect to each EC2 instance.
+
+### Update Packages
+
+```bash
+sudo yum update -y
+```
+
+### Install Apache
+
+```bash
+sudo yum install httpd -y
+```
+
+### Enable Apache
+
+```bash
+sudo systemctl enable httpd
+```
+
+### Start Apache
+
+```bash
+sudo systemctl start httpd
+```
+
+### Verify Status
+
+```bash
+sudo systemctl status httpd
+```
+
+Expected Output:
+
+```text
+Active: active (running)
+```
+
+---
+
+# 🚀 Create Different Web Pages
+
+## EC2@LB-01
+
+```bash
+sudo nano /var/www/html/index.html
+```
+
+Paste:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<title>Server 1</title>
+</head>
+<body>
+<h1>Welcome to EC2 Server 1</h1>
+</body>
+</html>
+```
+
+Save the file.
+
+---
+
+## EC2@LB-02
+
+```bash
+sudo nano /var/www/html/index.html
+```
+
+Paste:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<title>Server 2</title>
+</head>
+<body>
+<h1>Welcome to EC2 Server 2</h1>
+</body>
+</html>
+```
+
+Save the file.
+
+---
+
+# 🔐 Configure Security Group
+
+Allow the following inbound rules.
+
+| Type | Protocol | Port | Source |
+|------|----------|------|---------|
+| SSH | TCP | 22 | My IP |
+| HTTP | TCP | 80 | 0.0.0.0/0 |
+
+---
+
+# 🌐 Test the EC2 Servers
+
+Open each EC2 instance using its **Public IP**.
+
+Example:
+
+```text
+http://Public-IP-1
+```
+
+Output:
+
+```text
+Welcome to EC2 Server 1
+```
+
+Open:
+
+```text
+http://Public-IP-2
+```
+
+Output:
+
+```text
+Welcome to EC2 Server 2
+```
+
+If both pages open successfully, Apache is working correctly.
+
+---
+
+# 🎯 Create a Target Group
 
 Navigate to:
 
 ```text
 AWS Console
-    ↓
+      │
+      ▼
 EC2
-    ↓
-Launch Instance
+      │
+      ▼
+Target Groups
+      │
+      ▼
+Create Target Group
 ```
 
-Configure the instance.
+Configure the Target Group.
 
 | Setting | Value |
-|----------|-------|
-| Name | web-server-1/2 |
-| AMI | Amazon Linux 2023 |
-| Instance Type | t2.micro |
-| Key Pair | Existing Key Pair (Example: key) |
-| VPC | Default VPC (or Custom VPC) |
-| Subnet | Public Subnet A (Example: ap-south-1a) |
-| Auto Assign Public IP | Enable |
-| Storage | 8 GB gp3 |
+|---------|-------|
+| Target Type | Instance |
+| Protocol | TCP |
+| Port | 80 |
+| VPC | Select your VPC |
+
+Click **Next**.
+
+Register the following instances:
+
+- EC2@LB-01
+- EC2@LB-02
+
+Click **Include as pending below**.
+
+Finally, click **Create Target Group**.
 
 ---
 
-# 🔐 Security Group Configuration
+# 🌐 Create the Network Load Balancer
 
-Create a new Security Group.
-
-### Inbound Rules
-
-| Type | Port | Source |
-|------|------|---------|
-| SSH | 22 | My IP |
-| HTTP | 80 | 0.0.0.0/0 |
-
-### Outbound Rules
-
-| Type | Destination |
-|------|-------------|
-| All Traffic | 0.0.0.0/0 |
-
----
-
-# ⚙️ EC2 User Data Script
-
-Paste the following script into the **User Data** section while launching the EC2 instance.
-
-```bash
-#!/bin/bash
-
-# Update packages
-sudo yum update -y
-
-# Install Apache Web Server
-sudo yum install -y httpd
-
-# Start Apache
-sudo systemctl start httpd
-
-# Enable Apache at boot
-sudo systemctl enable httpd
-
-# Create a sample web page with the hostname
-echo "<html><h1>Welcome to Apache Web Server on Amazon Linux - $(hostname)!</h1></html>" > /var/www/html/index.html
-```
-
-This script automatically:
-
-- Updates the instance
-- Installs Apache (`httpd`)
-- Starts the Apache service
-- Enables Apache to start automatically after reboot
-- Creates a simple webpage displaying the EC2 hostname
-
-Click:
+Navigate to:
 
 ```text
-Launch Instance
+EC2
+   │
+   ▼
+Load Balancers
+   │
+   ▼
+Create Load Balancer
+   │
+   ▼
+Network Load Balancer
 ```
+
+Configure the NLB.
+
+| Setting | Value |
+|---------|-------|
+| Name | DemoNLB |
+| Scheme | Internet-facing |
+| IP Address Type | IPv4 |
+| VPC | Select your VPC |
+| Availability Zones | At least two public subnets |
+| Listener Protocol | TCP |
+| Listener Port | 80 |
+| Forward To | Demo-TG-NLB |
+
+Example Availability Zones:
+
+- ap-south-1a
+- ap-south-1b
+- ap-south-1c
+
+Click **Create Load Balancer**.
+
 ---
 
-# ✅ Expected Result
+# ❤️ Verify Health Checks
 
-After the instance reaches the **Running** state:
+AWS automatically checks the health of the registered targets.
 
-Open a browser and visit:
+Expected Status:
 
 ```text
-http://<EC2-Public-IP>
+Healthy : 2
+
+Unhealthy : 0
 ```
+
+This indicates both EC2 instances are healthy and ready to receive traffic.
+
+---
+
+# 🌍 Copy the NLB DNS Name
+
+After the NLB is created, copy its **DNS Name**.
 
 Example:
 
 ```text
-http://13.xxx.xxx.xxx
+DemoNLB-c1f818c84c0d241b.elb.ap-south-1.amazonaws.com
 ```
 
-You should see a page similar to:
+Open it in your browser.
 
 ```text
-Welcome to Apache Web Server on Amazon Linux - ip-172-31-xx-xx
+http://DemoNLB-c1f818c84c0d241b.elb.ap-south-1.amazonaws.com
 ```
 
-This confirms that:
+---
 
-- Apache is installed successfully.
-- The EC2 instance is serving web traffic.
-- The instance is ready to be registered with an Application Load Balancer.
+# 🔄 Test Load Balancing
+
+Refresh the page multiple times.
+
+You may see:
+
+```text
+Welcome to EC2 Server 1
+```
+
+or
+
+```text
+Welcome to EC2 Server 2
+```
+
+> **Note:** A Network Load Balancer (NLB) balances **TCP connections**, not individual HTTP requests. Modern browsers often reuse the same TCP connection (HTTP keep-alive), so repeated page refreshes may continue to reach the same EC2 instance. To observe traffic distributed across both servers, try using an incognito window, a different browser, or create new connections with a tool such as `curl`.
+
+---
+
+# 📊 NLB Workflow
+
+```text
+Launch EC2 Instances
+        │
+        ▼
+Install Apache
+        │
+        ▼
+Create Different Web Pages
+        │
+        ▼
+Configure Security Groups
+        │
+        ▼
+Create Target Group
+        │
+        ▼
+Register EC2 Instances
+        │
+        ▼
+Create Network Load Balancer
+        │
+        ▼
+Health Checks Become Healthy
+        │
+        ▼
+Access NLB DNS Name
+        │
+        ▼
+Traffic Distributed Across EC2 Instances
+```
 
 ---
 
@@ -163,18 +378,19 @@ This confirms that:
 
 After completing this lab, you will understand:
 
-- How to launch an Amazon Linux EC2 instance
-- How to configure Security Groups
-- How to use EC2 User Data for automatic server configuration
-- How to install and configure Apache Web Server
-- How to prepare EC2 instances for an Elastic Load Balancer (ALB)
+- What a Network Load Balancer (NLB) is
+- How NLB distributes TCP traffic
+- How to create a Target Group
+- How to register EC2 instances as targets
+- How NLB health checks work
+- How to test load balancing using the NLB DNS name
 
 ---
 
 # ⚠️ Best Practices
 
-- Deploy EC2 instances across multiple Availability Zones for High Availability.
-- Restrict SSH (Port 22) access to **My IP** instead of allowing public access.
-- Use User Data to automate server provisioning.
-- Use Security Groups to allow only the required inbound traffic.
-- Verify Apache is running before attaching the instance to the Load Balancer.
+- Deploy the NLB across multiple Availability Zones for high availability.
+- Use Security Groups to restrict unnecessary access.
+- Monitor target health using AWS health checks.
+- Use Elastic IPs if your application requires fixed public IP addresses.
+- Use NLB for high-performance TCP, UDP, or TLS workloads.
