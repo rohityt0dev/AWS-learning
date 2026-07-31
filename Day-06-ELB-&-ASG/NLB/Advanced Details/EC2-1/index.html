@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# Update packages
+dnf update -y
+
+# Install Apache
+dnf install -y httpd
+
+# Enable and start Apache
+systemctl enable httpd
+systemctl start httpd
+
+# Create HTML page
+cat <<EOF > /var/www/html/index.html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Server 1</title>
+</head>
+<body style="background-color:#e8f5e9; text-align:center; font-family:Arial;">
+    <h1>🚀 Welcome to EC2 Server 1</h1>
+    <h2>Network Load Balancer Demo</h2>
+    <p>This page is served from <b>EC2@LB-01</b>.</p>
+</body>
+</html>
+EOF
+
+# Restart Apache
+systemctl restart httpd
