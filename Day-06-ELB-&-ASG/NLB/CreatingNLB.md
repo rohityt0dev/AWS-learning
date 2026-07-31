@@ -1,348 +1,376 @@
-# 🌐 Lab: Create a Network Load Balancer (NLB) in AWS
+# AWS Network Load Balancer (NLB) - Step-by-Step Lab Guide
 
-A **Network Load Balancer (NLB)** is an AWS Elastic Load Balancer that operates at **Layer 4 (Transport Layer)** of the OSI model. It distributes **TCP, UDP, TLS, and TCP_UDP** traffic across multiple targets, providing **high performance**, **low latency**, and the ability to handle **millions of requests per second**.
+This lab demonstrates how to create an **AWS Network Load Balancer (NLB)** to distribute **TCP traffic** across two EC2 instances running Apache Web Server.
 
 ---
 
 # 🎯 Objective
 
-- Create a Network Load Balancer (NLB)
-- Configure a TCP Listener
+After completing this lab, you will be able to:
+
+- Launch multiple EC2 instances
+- Install and configure Apache Web Server
 - Create a Target Group
-- Register EC2 instances
-- Configure Health Checks
-- Verify traffic distribution
+- Create a Network Load Balancer (NLB)
+- Register EC2 instances as targets
+- Verify health checks
+- Test TCP load balancing using the NLB DNS name
 
 ---
 
-# 🛠️ Services Used
+# 🛠️ AWS Services Used
 
 - Amazon EC2
 - Network Load Balancer (NLB)
 - Target Groups
+- Amazon VPC
+- Security Groups
 
 ---
 
 # 🏗️ Architecture
 
 ```text
-                 Internet
-                     │
-                     ▼
-          Network Load Balancer
-             Listener (TCP :80)
-                     │
-              Target Group (TCP)
-                     │
-        ┌────────────┴────────────┐
-        │                         │
-        ▼                         ▼
-   EC2 Instance 1            EC2 Instance 2
-     Apache :80                Apache :80
-       AZ-1                      AZ-2
+                    Internet
+                        │
+                        ▼
+        Network Load Balancer (TCP : 80)
+                        │
+            ┌───────────┴───────────┐
+            ▼                       ▼
+     EC2@LB-01                 EC2@LB-02
+    Apache Server             Apache Server
+   "Welcome Server 1"       "Welcome Server 2"
 ```
 
 ---
 
 # ✅ Prerequisites
 
-Before creating the Network Load Balancer, ensure you already have:
+Before starting this lab, ensure you have:
 
-- ✅ VPC
-- ✅ Two Public Subnets (Different Availability Zones)
-- ✅ Two EC2 Instances
-- ✅ Apache or Nginx running on Port **80**
-- ✅ Security Group allowing HTTP (Port 80)
-
----
-
-# 🚀 Open the EC2 Console
-
-1. Sign in to the **AWS Management Console**.
-2. Navigate to **Amazon EC2**.
-3. In the left navigation pane, under **Load Balancing**, click:
-
-```text
-Load Balancers
-```
-
-4. Click:
-
-```text
-Create Load Balancer
-```
+- AWS Account
+- Existing VPC
+- Two Public Subnets (or more)
+- EC2 Key Pair
+- Internet Gateway
+- Security Group
 
 ---
 
-# 🌐 Choose the Load Balancer Type
+# 🚀 Launch EC2 Instances
 
-Select:
+Launch **2 Amazon Linux EC2 instances**.
 
-```text
-Network Load Balancer
-```
+| Instance | Name |
+|----------|------|
+| EC2-1 | EC2@LB-01 |
+| EC2-2 | EC2@LB-02 |
 
-Click:
-
-```text
-Create
-```
+Verify both instances are in the **Running** state.
 
 ---
 
-# ⚙️ Configure Basic Settings
+# 🚀 Install Apache Web Server
 
-Configure the following settings.
+Connect to each EC2 instance.
 
-| Setting | Value |
-|----------|-------|
-| Name | my-nlb |
-| Scheme | Internet-facing |
-| IP Address Type | IPv4 |
+### Update Packages
 
-> **Note:** Choose **Internal** instead of **Internet-facing** if the NLB should only be accessible from within your VPC.
+```bash
+sudo yum update -y
+```
 
----
+### Install Apache
 
-# 🌍 Configure Network Mapping
+```bash
+sudo yum install httpd -y
+```
 
-Choose the VPC where your EC2 instances are running.
+### Enable Apache
 
-Enable at least **two Availability Zones**.
+```bash
+sudo systemctl enable httpd
+```
 
-| Availability Zone | Subnet |
-|-------------------|---------|
-| ap-south-1a | Public Subnet A |
-| ap-south-1b | Public Subnet B |
+### Start Apache
 
-Click:
+```bash
+sudo systemctl start httpd
+```
+
+### Verify Status
+
+```bash
+sudo systemctl status httpd
+```
+
+Expected Output:
 
 ```text
-Next
+Active: active (running)
 ```
 
 ---
 
-# 🎧 Configure the Listener
+# 🚀 Create Different Web Pages
 
-Create a listener.
+## EC2@LB-01
 
-| Setting | Value |
-|----------|-------|
-| Protocol | TCP |
-| Port | 80 |
+```bash
+sudo nano /var/www/html/index.html
+```
 
-> **Note:** NLB also supports **TLS**, **UDP**, and **TCP_UDP** depending on your application requirements.
+Paste:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<title>Server 1</title>
+</head>
+<body>
+<h1>Welcome to EC2 Server 1</h1>
+</body>
+</html>
+```
+
+Save the file.
+
+---
+
+## EC2@LB-02
+
+```bash
+sudo nano /var/www/html/index.html
+```
+
+Paste:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<title>Server 2</title>
+</head>
+<body>
+<h1>Welcome to EC2 Server 2</h1>
+</body>
+</html>
+```
+
+Save the file.
+
+---
+
+# 🔐 Configure Security Group
+
+Allow the following inbound rules.
+
+| Type | Protocol | Port | Source |
+|------|----------|------|---------|
+| SSH | TCP | 22 | My IP |
+| HTTP | TCP | 80 | 0.0.0.0/0 |
+
+---
+
+# 🌐 Test the EC2 Servers
+
+Open each EC2 instance using its **Public IP**.
+
+Example:
+
+```text
+http://Public-IP-1
+```
+
+Output:
+
+```text
+Welcome to EC2 Server 1
+```
+
+Open:
+
+```text
+http://Public-IP-2
+```
+
+Output:
+
+```text
+Welcome to EC2 Server 2
+```
+
+If both pages open successfully, Apache is working correctly.
 
 ---
 
 # 🎯 Create a Target Group
 
-Click:
+Navigate to:
 
 ```text
+AWS Console
+      │
+      ▼
+EC2
+      │
+      ▼
+Target Groups
+      │
+      ▼
 Create Target Group
 ```
 
 Configure the Target Group.
 
 | Setting | Value |
-|----------|-------|
-| Target Type | Instances |
-| Name | nlb-target-group |
+|---------|-------|
+| Target Type | Instance |
 | Protocol | TCP |
 | Port | 80 |
-| VPC | Your VPC |
+| VPC | Select your VPC |
 
-Click:
+Click **Next**.
 
-```text
-Next
-```
+Register the following instances:
 
----
+- EC2@LB-01
+- EC2@LB-02
 
-# ❤️ Configure Health Checks
+Click **Include as pending below**.
 
-Although the NLB forwards **TCP** traffic, you can configure **HTTP** health checks for web applications.
-
-Recommended settings:
-
-| Setting | Value |
-|----------|-------|
-| Health Check Protocol | HTTP |
-| Health Check Path | / |
-| Healthy Threshold | 3 |
-| Unhealthy Threshold | 3 |
-| Interval | 30 Seconds |
-| Timeout | 6 Seconds |
-
-> **Note:** For non-HTTP applications (such as databases), use **TCP Health Checks** instead.
-
-Click:
-
-```text
-Next
-```
+Finally, click **Create Target Group**.
 
 ---
 
-# 🖥️ Register Targets
-
-Select the EC2 instances.
-
-```text
-web-server-1
-
-web-server-2
-```
-
-Click:
-
-```text
-Include as pending below
-```
-
-Then click:
-
-```text
-Create Target Group
-```
-
----
-
-# 🔗 Attach the Target Group
-
-Return to the NLB creation page.
-
-Under **Default Action**, choose:
-
-```text
-Forward to:
-nlb-target-group
-```
-
-Click:
-
-```text
-Create Load Balancer
-```
-
----
-
-# ⏳ Wait for the NLB to Become Active
-
-Initially, the status will be:
-
-```text
-Provisioning
-```
-
-After a few minutes:
-
-```text
-Active
-```
-
----
-
-# 🌍 Test the Network Load Balancer
-
-Copy the **DNS Name** of the Network Load Balancer.
-
-Example:
-
-```text
-my-nlb-123456789.ap-south-1.elb.amazonaws.com
-```
-
-Open it in your browser.
-
-```text
-http://my-nlb-123456789.ap-south-1.elb.amazonaws.com
-```
-
-Refresh the page multiple times.
-
-Traffic should be distributed between both EC2 instances.
-
----
-
-# 🔐 Security Group Configuration
-
-## EC2 Security Group
-
-| Type | Port | Source |
-|------|------|---------|
-| HTTP | 80 | VPC CIDR or appropriate source* |
-| SSH | 22 | My IP |
-
-> **Note:** If your NLB is configured with Security Groups (supported in newer AWS configurations), you can allow HTTP traffic from the NLB Security Group instead of the VPC CIDR.
-
----
-
-# ❤️ Verify Target Health
+# 🌐 Create the Network Load Balancer
 
 Navigate to:
 
 ```text
 EC2
-    ↓
-Target Groups
-    ↓
-nlb-target-group
-    ↓
-Targets
-```
-
-Expected status:
-
-```text
-✔ web-server-1    Healthy
-
-✔ web-server-2    Healthy
-```
-
----
-
-# 🔄 NLB Request Flow
-
-```text
-Internet
-    │
-    ▼
+   │
+   ▼
+Load Balancers
+   │
+   ▼
+Create Load Balancer
+   │
+   ▼
 Network Load Balancer
-    │
-    ▼
-Target Group
-    │
-    ├──────────────► EC2 Instance 1
-    │
-    └──────────────► EC2 Instance 2
+```
+
+Configure the NLB.
+
+| Setting | Value |
+|---------|-------|
+| Name | DemoNLB |
+| Scheme | Internet-facing |
+| IP Address Type | IPv4 |
+| VPC | Select your VPC |
+| Availability Zones | At least two public subnets |
+| Listener Protocol | TCP |
+| Listener Port | 80 |
+| Forward To | Demo-TG-NLB |
+
+Example Availability Zones:
+
+- ap-south-1a
+- ap-south-1b
+- ap-south-1c
+
+Click **Create Load Balancer**.
+
+---
+
+# ❤️ Verify Health Checks
+
+AWS automatically checks the health of the registered targets.
+
+Expected Status:
+
+```text
+Healthy : 2
+
+Unhealthy : 0
+```
+
+This indicates both EC2 instances are healthy and ready to receive traffic.
+
+---
+
+# 🌍 Copy the NLB DNS Name
+
+After the NLB is created, copy its **DNS Name**.
+
+Example:
+
+```text
+DemoNLB-c1f818c84c0d241b.elb.ap-south-1.amazonaws.com
+```
+
+Open it in your browser.
+
+```text
+http://DemoNLB-c1f818c84c0d241b.elb.ap-south-1.amazonaws.com
 ```
 
 ---
 
-# 🛠️ Common Issues
+# 🔄 Test Load Balancing
 
-| Problem | Possible Cause | Solution |
-|----------|----------------|----------|
-| Targets are unhealthy | Web server isn't running | Check `sudo systemctl status httpd` |
-| Health checks fail | Wrong protocol or path | Verify TCP/HTTP health check settings |
-| Connection timeout | Security Group or NACL issue | Allow the required application port |
-| NLB not reachable | Incorrect subnet or routing | Ensure the NLB is deployed in public subnets with an Internet Gateway |
+Refresh the page multiple times.
+
+You may see:
+
+```text
+Welcome to EC2 Server 1
+```
+
+or
+
+```text
+Welcome to EC2 Server 2
+```
+
+> **Note:** A Network Load Balancer (NLB) balances **TCP connections**, not individual HTTP requests. Modern browsers often reuse the same TCP connection (HTTP keep-alive), so repeated page refreshes may continue to reach the same EC2 instance. To observe traffic distributed across both servers, try using an incognito window, a different browser, or create new connections with a tool such as `curl`.
 
 ---
 
-# ✅ Expected Result
+# 📊 NLB Workflow
 
-After completing this lab:
-
-- A Network Load Balancer is created successfully.
-- A TCP Listener is configured on Port **80**.
-- A Target Group is created and associated with the NLB.
-- Both EC2 instances are registered and become **Healthy**.
-- Incoming traffic is distributed across the EC2 instances.
+```text
+Launch EC2 Instances
+        │
+        ▼
+Install Apache
+        │
+        ▼
+Create Different Web Pages
+        │
+        ▼
+Configure Security Groups
+        │
+        ▼
+Create Target Group
+        │
+        ▼
+Register EC2 Instances
+        │
+        ▼
+Create Network Load Balancer
+        │
+        ▼
+Health Checks Become Healthy
+        │
+        ▼
+Access NLB DNS Name
+        │
+        ▼
+Traffic Distributed Across EC2 Instances
+```
 
 ---
 
@@ -350,19 +378,19 @@ After completing this lab:
 
 After completing this lab, you will understand:
 
-- How to create a Network Load Balancer
-- The difference between Layer 4 (NLB) and Layer 7 (ALB) load balancing
-- How to configure TCP listeners
-- How to create and configure Target Groups
-- How Health Checks work with NLB
-- How to verify target health and troubleshoot common issues
+- What a Network Load Balancer (NLB) is
+- How NLB distributes TCP traffic
+- How to create a Target Group
+- How to register EC2 instances as targets
+- How NLB health checks work
+- How to test load balancing using the NLB DNS name
 
 ---
 
 # ⚠️ Best Practices
 
-- Deploy targets across multiple Availability Zones for High Availability.
-- Use TCP Health Checks for non-HTTP applications.
-- Restrict EC2 Security Groups to trusted sources such as the VPC CIDR or the NLB Security Group.
-- Monitor Target Health and NLB metrics using Amazon CloudWatch.
-- Use Network Load Balancers for high-performance, low-latency TCP/UDP applications.
+- Deploy the NLB across multiple Availability Zones for high availability.
+- Use Security Groups to restrict unnecessary access.
+- Monitor target health using AWS health checks.
+- Use Elastic IPs if your application requires fixed public IP addresses.
+- Use NLB for high-performance TCP, UDP, or TLS workloads.
