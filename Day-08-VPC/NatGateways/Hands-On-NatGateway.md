@@ -59,7 +59,7 @@ Before starting this lab, ensure you have:
 
 ---
 
-# 🚀 Step 1: Create a NAT Gateway
+# 🚀 Create a NAT Gateway
 
 Navigate to:
 
@@ -85,7 +85,6 @@ Enter the following details:
 |----------|-------|
 | Name | Demo-NAT |
 | Subnet | Public-Subnet-1 |
-| Elastic IP | Select the Elastic IP created earlier |
 
 Click:
 
@@ -101,7 +100,7 @@ Available
 
 ---
 
-# 🚀 Step 2: Create a Private Route Table
+# 🚀 Create a Private Route Table
 
 Navigate to:
 
@@ -136,7 +135,7 @@ Create Route Table
 
 ---
 
-# 🚀 Step 3: Add a NAT Gateway Route
+# 🚀 Add a NAT Gateway Route
 
 Select:
 
@@ -172,7 +171,7 @@ Save Changes
 
 ---
 
-# 🚀 Step 4: Associate Private Subnets
+# 🚀 Associate Private Subnets
 
 Open the:
 
