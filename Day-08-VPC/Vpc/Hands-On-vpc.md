@@ -28,7 +28,7 @@ Amazon **Virtual Private Cloud (VPC)** allows you to create an isolated virtual 
 
 ---
 
-# 🚀 Step 1: Sign in to AWS Console
+# 🚀 Sign in to AWS Console
 
 1. Sign in to the **AWS Management Console**.
 2. In the search bar, type:
@@ -41,7 +41,7 @@ VPC
 
 ---
 
-# 🚀 Step 2: Open the VPC Dashboard
+# 🚀 Open the VPC Dashboard
 
 From the left navigation pane, select:
 
@@ -57,7 +57,7 @@ Create VPC
 
 ---
 
-# 🚀 Step 3: Choose Resources to Create
+# 🚀 Choose Resources to Create
 
 AWS provides two options:
 
@@ -76,7 +76,7 @@ VPC only
 
 ---
 
-# 🚀 Step 4: Configure VPC Details
+# 🚀 Configure VPC Details
 
 Enter the following values:
 
@@ -90,7 +90,7 @@ Enter the following values:
 
 ---
 
-# 🚀 Step 5: Create the VPC
+# 🚀 Create the VPC
 
 Review the configuration.
 
