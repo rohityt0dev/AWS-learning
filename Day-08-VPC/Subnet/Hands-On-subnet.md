@@ -31,12 +31,12 @@ A **Subnet** is a range of IP addresses within a VPC. In this lab, you will crea
  Public Subnets               Private Subnets
       │                              │
  ┌──────────────┐             ┌──────────────┐
- │10.0.1.0/24   │             │10.0.3.0/24   │
+ │10.0.0.0/24   │             │10.0.16.0/20   │
  │AZ: ap-south-1a│            │AZ: ap-south-1a│
  └──────────────┘             └──────────────┘
 
  ┌──────────────┐             ┌──────────────┐
- │10.0.2.0/24   │             │10.0.4.0/24   │
+ │10.0.1.0/24   │             │10.0.32.0/20   │
  │AZ: ap-south-1b│            │AZ: ap-south-1b│
  └──────────────┘             └──────────────┘
 ```
@@ -52,7 +52,7 @@ Before starting this lab, ensure you have:
 
 ---
 
-# 🚀 Step 1: Create Public Subnets
+# 🚀 Create Public Subnets
 
 Open:
 
@@ -78,7 +78,7 @@ Create subnet
 | VPC | Demo-VPC-01 |
 | Subnet Name | Public-Subnet-1 |
 | Availability Zone | ap-south-1a |
-| IPv4 CIDR | 10.0.1.0/24 |
+| IPv4 CIDR | 10.0.0.0/24 |
 
 Click **Create Subnet**.
 
@@ -93,13 +93,13 @@ Click **Create subnet** again.
 | VPC | Demo-VPC-01 |
 | Subnet Name | Public-Subnet-2 |
 | Availability Zone | ap-south-1b |
-| IPv4 CIDR | 10.0.2.0/24 |
+| IPv4 CIDR | 10.0.1.0/24 |
 
 Click **Create Subnet**.
 
 ---
 
-# 🚀 Step 2: Create Private Subnets
+# 🚀 Create Private Subnets
 
 ## Private Subnet 1
 
@@ -108,7 +108,7 @@ Click **Create Subnet**.
 | VPC | Demo-VPC-01 |
 | Subnet Name | Private-Subnet-1 |
 | Availability Zone | ap-south-1a |
-| IPv4 CIDR | 10.0.3.0/24 |
+| IPv4 CIDR | 10.0.16.0/20 |
 
 Click **Create Subnet**.
 
@@ -122,8 +122,8 @@ Click **Create subnet** again.
 |----------|-------|
 | VPC | Demo-VPC-01 |
 | Subnet Name | Private-Subnet-2 |
-| Availability Zone | ap-south-1b |
-| IPv4 CIDR | 10.0.4.0/24 |
+| Availability Zone  ap-south-1b |
+| IPv4 CIDR | 10.0.32.0/20 |
 
 Click **Create Subnet**.
 
@@ -135,10 +135,10 @@ Your VPC should contain four subnets.
 
 | Subnet Name | CIDR Block | Availability Zone | Type |
 |--------------|------------|-------------------|------|
-| Public-Subnet-1 | 10.0.1.0/24 | ap-south-1a | Public |
-| Public-Subnet-2 | 10.0.2.0/24 | ap-south-1b | Public |
-| Private-Subnet-1 | 10.0.3.0/24 | ap-south-1a | Private |
-| Private-Subnet-2 | 10.0.4.0/24 | ap-south-1b | Private |
+| Public-Subnet-1 | 10.0.0.0/24 | ap-south-1a | Public |
+| Public-Subnet-2 | 10.0.1.0/24 | ap-south-1b | Public |
+| Private-Subnet-1 | 10.0.16.0/24 | ap-south-1a | Private |
+| Private-Subnet-2 | 10.0.32.0/24 | ap-south-1b | Private |
 
 ---
 
@@ -148,10 +148,10 @@ Your VPC should contain four subnets.
 Demo-VPC-01
 CIDR : 10.0.0.0/16
 
-├── Public-Subnet-1   (10.0.1.0/24)
-├── Public-Subnet-2   (10.0.2.0/24)
-├── Private-Subnet-1  (10.0.3.0/24)
-└── Private-Subnet-2  (10.0.4.0/24)
+├── Public-Subnet-1   (10.0.0.0/24)
+├── Public-Subnet-2   (10.0.1.0/24)
+├── Private-Subnet-1  (10.0.16.0/20)
+└── Private-Subnet-2  (10.0.32.0/20)
 ```
 
 ---
