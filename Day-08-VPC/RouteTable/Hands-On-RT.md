@@ -51,7 +51,7 @@ Before starting this lab, ensure you have:
 
 ---
 
-# 🚀 Step 1: Open Route Tables
+# 🚀 Open Route Tables
 
 Navigate to:
 
@@ -73,7 +73,7 @@ Create Route Table
 
 ---
 
-# 🚀 Step 2: Create the Route Table
+# 🚀 Create the Route Table
 
 Enter the following details.
 
@@ -90,7 +90,7 @@ Create Route Table
 
 ---
 
-# 🚀 Step 3: Add an Internet Route
+# 🚀 Add an Internet Route
 
 Select:
 
@@ -126,7 +126,7 @@ Save Changes
 
 ---
 
-# 🚀 Step 4: Associate Public Subnets
+# 🚀 Associate Public Subnets
 
 Open the:
 
