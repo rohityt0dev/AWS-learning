@@ -1,23 +1,31 @@
 # Amazon VPC Subnets
 
-A **Subnet** is a range of IP addresses within an Amazon VPC. It allows you to organize and isolate AWS resources, such as EC2 instances, within your VPC.
+A **Subnet** is a logical subdivision of a VPC. It defines a range of IP addresses where you can launch AWS resources such as EC2 instances.
+
+---
+
+# What is a Subnet?
+
+A subnet divides a VPC into smaller networks, allowing you to organize resources and control network access.
+
+Each subnet belongs to a single Availability Zone (AZ).
 
 ---
 
 # AWS Reserved IP Addresses
 
-AWS reserves **5 IP addresses** in every subnet.
+AWS automatically reserves **5 IP addresses** in every subnet.
 
-These IP addresses **cannot** be assigned to EC2 instances or other AWS resources.
+These reserved IP addresses **cannot** be assigned to EC2 instances or other AWS resources.
 
 ---
 
 # Reserved IP Addresses
 
-Example CIDR Block:
+Example Subnet:
 
 ```text
-10.0.0.0/24
+CIDR Block: 10.0.0.0/24
 ```
 
 | IP Address | Purpose |
@@ -25,10 +33,8 @@ Example CIDR Block:
 | **10.0.0.0** | Network Address |
 | **10.0.0.1** | Reserved by AWS for the VPC Router |
 | **10.0.0.2** | Reserved by AWS for Amazon-provided DNS |
-| **10.0.0.3** | Reserved by AWS (Future Use) |
-| **10.0.0.255** | Reserved as the last IP address in the subnet |
-
-> **Note:** AWS does **not** support traditional network broadcast inside a VPC, but the last IP address is still reserved and cannot be used.
+| **10.0.0.3** | Reserved by AWS for future use |
+| **10.0.0.255** | Reserved as the last IP address (AWS does not support broadcast in a VPC) |
 
 ---
 
@@ -46,7 +52,7 @@ Total IP Addresses:
 256
 ```
 
-AWS Reserved:
+Reserved by AWS:
 
 ```text
 5
@@ -60,23 +66,24 @@ Usable IP Addresses:
 
 ---
 
-# Common Examples
+# Common Subnet Sizes
 
-| Subnet CIDR | Total IPs | Usable IPs |
-|-------------|----------:|-----------:|
-| /28 | 16 | 11 |
-| /27 | 32 | 27 |
-| /26 | 64 | 59 |
-| /24 | 256 | 251 |
+| CIDR | Total IP Addresses | AWS Reserved | Usable IP Addresses |
+|------|-------------------:|-------------:|--------------------:|
+| /28 | 16 | 5 | 11 |
+| /27 | 32 | 5 | 27 |
+| /26 | 64 | 5 | 59 |
+| /24 | 256 | 5 | 251 |
 
 ---
 
 # Key Points
 
 - Every subnet belongs to one VPC.
-- AWS automatically reserves **5 IP addresses** in each subnet.
+- A subnet exists within a single Availability Zone.
+- AWS reserves the **first four** and **last one** IP address in every subnet.
 - Reserved IP addresses cannot be assigned to EC2 instances.
-- Plan subnet sizes carefully to ensure enough usable IP addresses for your resources.
+- Plan subnet sizes carefully to ensure enough usable IP addresses.
 
 ---
 
