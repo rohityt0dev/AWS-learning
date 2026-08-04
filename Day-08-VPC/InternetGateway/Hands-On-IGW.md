@@ -42,7 +42,7 @@ Before starting this lab, ensure you have:
 
 ---
 
-# 🚀 Step 1: Open Internet Gateways
+# 🚀 Open Internet Gateways
 
 Navigate to:
 
@@ -64,7 +64,7 @@ Create Internet Gateway
 
 ---
 
-# 🚀 Step 2: Create an Internet Gateway
+# 🚀 Create an Internet Gateway
 
 Enter the following details:
 
@@ -80,7 +80,7 @@ Create Internet Gateway
 
 ---
 
-# 🚀 Step 3: Attach the Internet Gateway to the VPC
+# 🚀 Attach the Internet Gateway to the VPC
 
 Select:
 
