@@ -63,7 +63,7 @@ Before starting this lab, ensure you have:
 
 ---
 
-# 🌐 Step 1: Verify VPCs
+# 🌐 Verify VPCs
 
 Ensure both VPCs are available.
 
@@ -74,7 +74,7 @@ Ensure both VPCs are available.
 
 ---
 
-# 🤝 Step 2: Create a VPC Peering Connection
+# 🤝 Create a VPC Peering Connection
 
 Create a VPC Peering Connection between:
 
@@ -94,7 +94,7 @@ Active
 
 ---
 
-# 🛣️ Step 3: Update Route Tables
+# 🛣️ Update Route Tables
 
 ## Default VPC Route Table
 
@@ -130,7 +130,7 @@ Existing routes:
 
 ---
 
-# 💻 Step 4: Verify EC2 Instances
+# 💻 Verify EC2 Instances
 
 Ensure both EC2 instances are running.
 
@@ -141,7 +141,7 @@ Ensure both EC2 instances are running.
 
 ---
 
-# 🧪 Step 5: Test VPC Peering
+# 🧪 Test VPC Peering
 
 ### Connect to the EC2 instance in the Default VPC
 
