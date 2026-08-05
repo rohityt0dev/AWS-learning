@@ -47,7 +47,7 @@ Before starting this lab, ensure you have:
 
 ---
 
-# 🚀 Step 1: Open the VPC Dashboard
+# 🚀 Open the VPC Dashboard
 
 1. Sign in to the **AWS Management Console**.
 2. Search for:
@@ -60,7 +60,7 @@ VPC
 
 ---
 
-# 🚀 Step 2: Open Peering Connections
+# 🚀 Open Peering Connections
 
 Navigate to:
 
@@ -81,7 +81,7 @@ Peering Connections
 
 ---
 
-# 🚀 Step 3: Create a Peering Connection
+# 🚀 Create a Peering Connection
 
 Click:
 
@@ -113,7 +113,7 @@ Pending Acceptance
 
 ---
 
-# 🚀 Step 4: Accept the Peering Request
+# 🚀 Accept the Peering Request
 
 Select:
 
@@ -140,7 +140,7 @@ Active
 
 ---
 
-# 🚀 Step 5: Update the Route Table for Demo-VPC-01
+# 🚀 Update the Route Table for Demo-VPC-01
 
 Navigate to:
 
@@ -183,7 +183,7 @@ Save Changes
 
 ---
 
-# 🚀 Step 6: Update the Route Table for DefaultVPC
+# 🚀 Update the Route Table for DefaultVPC
 
 Select the Route Table for:
 
