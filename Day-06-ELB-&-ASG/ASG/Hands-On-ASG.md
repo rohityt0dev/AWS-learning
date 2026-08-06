@@ -61,7 +61,7 @@ Before starting this lab, ensure you have:
 
 ---
 
-# 🚀 Step 1: Create a Launch Template
+# 🚀 Create a Launch Template
 
 Navigate to:
 
@@ -85,7 +85,7 @@ Configure the template.
 | Template Name | MY-Template-ASG |
 | Description | Template for Auto Scaling Group |
 | AMI | Amazon Linux 2023 |
-| Instance Type | t2.micro (Free Tier) or t3.small |
+| Instance Type | t3.micro (Free Tier) or t3.small |
 | Key Pair | key-01 |
 | Security Group | Allow SSH (22), HTTP (80), Optional HTTPS (443) |
 | Storage | 8 GB gp3 |
@@ -112,7 +112,7 @@ Create Launch Template
 
 ---
 
-# 🚀 Step 2: Create an Auto Scaling Group
+# 🚀 Create an Auto Scaling Group
 
 Navigate to:
 
@@ -137,7 +137,7 @@ Click **Next**.
 
 ---
 
-# 🚀 Step 3: Choose Network
+# 🚀 Choose Network
 
 Select your VPC.
 
@@ -154,7 +154,7 @@ Click **Next**.
 
 ---
 
-# 🚀 Step 4: Attach a Load Balancer (Optional)
+# 🚀 Attach a Load Balancer (Optional)
 
 If you already have an Application Load Balancer:
 
@@ -172,7 +172,7 @@ Click **Next**.
 
 ---
 
-# 🚀 Step 5: Configure Health Checks
+# 🚀 Configure Health Checks
 
 Enable:
 
@@ -192,7 +192,7 @@ Click **Next**.
 
 ---
 
-# 🚀 Step 6: Configure Group Size
+# 🚀 Configure Group Size
 
 Example configuration:
 
@@ -206,7 +206,7 @@ Example configuration:
 
 ---
 
-# 🚀 Step 7: Review and Create
+# 🚀 Review and Create
 
 Review all settings.
 
@@ -218,7 +218,7 @@ Create Auto Scaling Group
 
 ---
 
-# 🚀 Step 8: Verify the Auto Scaling Group
+# 🚀 Verify the Auto Scaling Group
 
 Navigate to:
 
@@ -236,7 +236,7 @@ You should see:
 
 ---
 
-# 🧪 Step 9: Test Automatic Instance Replacement
+# 🧪 Test Automatic Instance Replacement
 
 Terminate the EC2 instance manually.
 
@@ -276,7 +276,7 @@ This confirms that the Auto Scaling Group maintains the desired capacity.
 
 ---
 
-# 🧪 Step 10: Test Scale-Out
+# 🧪 Test Scale-Out
 
 If your ASG configuration is:
 
