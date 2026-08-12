@@ -59,12 +59,12 @@ Elastic Beanstalk manages the underlying AWS infrastructure required to run the 
 # 📁 Project Structure
 
 ```text
-SimplePythonApp/
+my-python-app/
 │
 ├── application.py
 ├── requirements.txt
-├── .ebignore
-└── simplepythonapp.zip
+└── .ebignore
+├── my-python-app.zip
 ```
 
 > **Important:** When creating the ZIP file, the application files should be at the root of the ZIP.
@@ -72,21 +72,11 @@ SimplePythonApp/
 Correct:
 
 ```text
-simplepythonapp.zip
+my-python-app.zip
 │
 ├── application.py
 ├── requirements.txt
 └── .ebignore
-```
-
-Avoid:
-
-```text
-simplepythonapp.zip
-└── SimplePythonApp/
-    ├── application.py
-    ├── requirements.txt
-    └── .ebignore
 ```
 
 ---
@@ -124,7 +114,7 @@ Elastic Beanstalk installs the packages listed in `requirements.txt` during depl
 
 # 🚀 Deployment Steps
 
-## Step 1: Open Elastic Beanstalk
+## Open Elastic Beanstalk
 
 Sign in to the AWS Management Console.
 
@@ -146,12 +136,12 @@ Create application
 
 ---
 
-## Step 2: Create Application
+## Create Application
 
 For **Application name**, enter:
 
 ```text
-SimplePythonApp
+Demo-ElasticBeanstalk-01
 ```
 
 For **Environment tier**, select:
@@ -162,7 +152,7 @@ Web server environment
 
 ---
 
-## Step 3: Configure Platform
+## Configure Platform
 
 For **Platform**, select:
 
@@ -182,7 +172,7 @@ The exact available Python version may change over time, so select the supported
 
 ---
 
-## Step 4: Upload Application Code
+## Upload Application Code
 
 Under **Application code**, select:
 
@@ -199,18 +189,18 @@ Choose file
 Select:
 
 ```text
-simplepythonapp.zip
+my-python-app.zip
 ```
 
 Example version label:
 
 ```text
-simplepythonapp-v1
+v1
 ```
 
 ---
 
-## Step 5: Configure Service Access
+## Configure Service Access
 
 Elastic Beanstalk requires IAM roles to manage the environment and EC2 instances.
 
@@ -225,15 +215,13 @@ aws-elasticbeanstalk-ec2-role
 
 ---
 
-## Step 6: Configure Networking
-
-For a basic learning project, the **Default VPC** can be used.
+##  Configure Networking
 
 Example:
 
 ```text
 VPC:
-Default VPC
+Demo-ElasticBeanstalk-01-vpc
 ```
 
 Select suitable subnets in your Availability Zones.
@@ -247,7 +235,7 @@ ap-south-1b
 
 ---
 
-## Step 7: Configure Environment Type
+## Configure Environment Type
 
 For this learning project:
 
@@ -266,7 +254,7 @@ A different instance type can be selected depending on your requirements and AWS
 
 ---
 
-## Step 8: Configure Security Group
+## Configure Security Group
 
 HTTP traffic must be allowed so users can access the web application.
 
@@ -288,20 +276,20 @@ Example:
 
 ---
 
-# 🔍 Step 9: Review Configuration
+# 🔍 Review Configuration
 
 Before creating the environment, verify the configuration.
 
 Example:
 
 ```text
-Application Name    : SimplePythonApp
+Application Name    : Demo-ElasticBeanstalk-01
 Environment Tier    : Web server environment
 Platform            : Python
 Operating System    : Amazon Linux 2023
 Environment Type    : Single instance
 Instance Type       : t3.micro
-Application Code    : simplepythonapp.zip
+Application Code    : Demo-ElasticBeanstalk-01-vpc
 ```
 
 Click:
@@ -312,7 +300,7 @@ Create environment
 
 ---
 
-# ⚙️ Step 10: Environment Creation
+# ⚙️ Environment Creation
 
 Elastic Beanstalk automatically creates and configures the required AWS resources.
 
@@ -336,7 +324,7 @@ The Python application runs on the EC2 instance managed by Elastic Beanstalk.
 
 ---
 
-# 💚 Step 11: Check Environment Health
+# 💚 Check Environment Health
 
 After deployment, open the Elastic Beanstalk environment.
 
@@ -350,14 +338,14 @@ A **Green** health status generally indicates that the environment is operating 
 
 ---
 
-# 🌐 Step 12: Access the Application
+# 🌐 Access the Application
 
 On the Elastic Beanstalk environment page, find the environment URL.
 
 Example:
 
 ```text
-http://SimplePythonApp-env.ap-south-1.elasticbeanstalk.com
+Demo-ElasticBeanstalk-01-env.ap-south-1.elasticbeanstalk.com
 ```
 
 Open the URL in a web browser.
@@ -365,7 +353,7 @@ Open the URL in a web browser.
 Expected output:
 
 ```text
-Hello from SimplePythonApp on AWS Elastic Beanstalk!
+Hello! Simple Python App is running on AWS Elastic Beanstalk.
 ```
 
 ---
@@ -379,42 +367,6 @@ application.py
 ```
 
 Create a new ZIP file.
-
-Example:
-
-```text
-simplepythonapp.zip
-```
-
-Then go to:
-
-```text
-Elastic Beanstalk
-      ↓
-Your Environment
-      ↓
-Upload and deploy
-```
-
-Select:
-
-```text
-simplepythonapp.zip
-```
-
-Use a new version label:
-
-```text
-simplepythonapp-v2
-```
-
-Click:
-
-```text
-Deploy
-```
-
-Elastic Beanstalk deploys the new version to the existing environment.
 
 ---
 
@@ -447,96 +399,6 @@ End User
 
 ---
 
-# 🔄 Existing Environment
-
-If an Elastic Beanstalk environment already exists, there is no need to create another environment for every application update.
-
-Use:
-
-```text
-Elastic Beanstalk
-      ↓
-Environments
-      ↓
-SimplePythonApp-env
-      ↓
-Upload and deploy
-```
-
-Upload the new ZIP file and provide a new version label.
-
-Example:
-
-```text
-simplepythonapp-v2
-```
-
----
-
-# 📋 Example Environment Configuration
-
-| Setting           | Example               |
-| ----------------- | --------------------- |
-| Application       | `SimplePythonApp`     |
-| Environment       | `SimplePythonApp-env` |
-| Health            | Green                 |
-| Platform          | Python                |
-| Operating System  | Amazon Linux 2023     |
-| Environment Type  | Single instance       |
-| Instance Type     | `t3.micro`            |
-| Monitoring        | Basic                 |
-| Deployment Policy | All at once           |
-
-> Configuration options can vary depending on the AWS Region and currently supported Elastic Beanstalk platform versions.
-
----
-
-# ⚠️ Important: Application File Name
-
-For Python Elastic Beanstalk applications, make sure your application is configured with the expected WSGI entry point.
-
-For example:
-
-```python
-application = Flask(__name__)
-```
-
-If your file is:
-
-```text
-application.py
-```
-
-and contains:
-
-```python
-application = Flask(__name__)
-```
-
-Elastic Beanstalk can use the application as the WSGI entry point.
-
----
-
-# ⚠️ Important: PYTHONPATH
-
-For a simple Flask Elastic Beanstalk application, you normally do **not** need to manually configure:
-
-```text
-PYTHONPATH
-```
-
-Keep the application structure simple:
-
-```text
-simplepythonapp.zip
-│
-├── application.py
-├── requirements.txt
-└── .ebignore
-```
-
----
-
 # 📊 Deployment Verification
 
 After deployment, verify the following:
@@ -550,34 +412,6 @@ EC2 Instance Running      ✓
 Health Status Green       ✓
 Application URL Working   ✓
 Version Deployment        ✓
-```
-
----
-
-# 🧪 Testing
-
-Open the Elastic Beanstalk URL:
-
-```text
-http://SimplePythonApp-env.ap-south-1.elasticbeanstalk.com
-```
-
-Expected response:
-
-```text
-Hello from SimplePythonApp on AWS Elastic Beanstalk!
-```
-
-You can also test the URL from Linux:
-
-```bash
-curl http://SimplePythonApp-env.ap-south-1.elasticbeanstalk.com
-```
-
-Expected output:
-
-```text
-Hello from SimplePythonApp on AWS Elastic Beanstalk!
 ```
 
 ---
@@ -658,38 +492,4 @@ DevOps
 
 ---
 
-# ⭐ Project Summary
 
-**Project:** Python Application Deployment using AWS Elastic Beanstalk
-
-**Platform:** AWS
-
-**Application:** Python Flask
-
-**Environment:** Web Server Environment
-
-**Deployment Type:** Single Instance
-
-**Operating System:** Amazon Linux 2023
-
-**Compute:** Amazon EC2
-
-**Deployment Artifact:** ZIP source bundle
-
-**Monitoring:** Amazon CloudWatch
-
-**Infrastructure Management:** AWS Elastic Beanstalk
-
----
-
-## 👨‍💻 Author
-
-**Rohit Tambadkar**
-
-Cloud & DevOps Learner
-
----
-
-## ⭐ If You Found This Project Useful
-
-If this project helped you understand AWS Elastic Beanstalk, consider giving the repository a ⭐ on GitHub.
