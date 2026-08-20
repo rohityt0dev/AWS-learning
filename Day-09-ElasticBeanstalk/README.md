@@ -535,19 +535,3 @@ Elastic Beanstalk
 Instead of spending significant time configuring infrastructure, you can use Elastic Beanstalk to simplify deployment and focus on delivering the application.
 
 ---
-
-## 📚 AWS Documentation
-
-For the latest official information, refer to the **AWS Elastic Beanstalk documentation**.
-
----
-
-## 👨‍💻 Author
-
-**Rohit Tambadkar**
-
-AWS & DevOps Learning Repository
-
----
-
-⭐ If this README helped you understand AWS Elastic Beanstalk, consider giving the repository a star!
