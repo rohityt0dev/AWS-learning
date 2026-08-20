@@ -54,7 +54,7 @@ Before starting this lab, ensure you have:
 
 ---
 
-# 🚀 Step 1: Create an S3 Bucket
+# 🚀 Create an S3 Bucket
 
 1. Sign in to the **AWS Management Console**.
 2. Search for **Amazon S3**.
@@ -78,7 +78,7 @@ Create Bucket
 
 ---
 
-# 🚀 Step 2: Upload Website Files
+# 🚀 Upload Website Files
 
 Open the bucket.
 
@@ -108,7 +108,7 @@ script.js
 
 ---
 
-# 🚀 Step 3: Create a CloudFront Distribution
+# 🚀 Create a CloudFront Distribution
 
 Navigate to:
 
@@ -136,7 +136,7 @@ CloudFront automatically detects the Amazon S3 bucket as the origin.
 
 ---
 
-# 🚀 Step 4: Configure Bucket Access
+# 🚀 Configure Bucket Access
 
 Under **Bucket Access**, choose:
 
@@ -150,7 +150,7 @@ This enables **Origin Access Control (OAC)** so CloudFront can securely access t
 
 ---
 
-# 🚀 Step 5: Configure the Default Root Object
+# 🚀 Configure the Default Root Object
 
 Set:
 
@@ -176,7 +176,7 @@ https://d2itfuw3kdndxi.cloudfront.net
 
 ---
 
-# 🚀 Step 6: Create the Distribution
+# 🚀 Create the Distribution
 
 Click:
 
@@ -200,7 +200,7 @@ Enabled
 
 ---
 
-# 🚀 Step 7: Test the Website
+# 🚀 Test the Website
 
 Copy the CloudFront domain name.
 
@@ -222,7 +222,7 @@ Your static website should load successfully.
 
 ---
 
-# 🚀 Step 8: Verify the S3 Bucket is Private
+# 🚀 Verify the S3 Bucket is Private
 
 Navigate to:
 
