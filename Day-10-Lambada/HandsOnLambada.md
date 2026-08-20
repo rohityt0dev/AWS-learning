@@ -1,8 +1,8 @@
 # 🌐 Python Website on AWS Lambda
 
-## 📌 Project Overview
+## 📌 Overview
 
-This project demonstrates how to deploy a simple **Python-based website using AWS Lambda** without managing an EC2 server.
+This demonstrates how to deploy a simple **Python-based website using AWS Lambda** without managing an EC2 server.
 
 The website is returned as an HTML response directly from a Lambda function. An **AWS Lambda Function URL** is used as the web endpoint, allowing users to access the website through a browser.
 
@@ -59,7 +59,7 @@ The browser sends a request to the Function URL, Lambda executes the Python func
 
 ---
 
-# 🚀 Project Objective
+# 🚀 Objective
 
 The objective of this project is to learn how to:
 
@@ -86,7 +86,7 @@ Before starting, you need:
 
 ---
 
-# 1️⃣ Create the Lambda Function
+#  Create the Lambda Function
 
 Open the AWS Lambda Console:
 
@@ -117,7 +117,7 @@ my-lambada-fuction
 
 ---
 
-# 2️⃣ Create the Python Lambda Code
+#  Create the Python Lambda Code
 
 Inside the Lambda function, open the **Code** section.
 
@@ -143,7 +143,7 @@ lambadafunction.lambda_handler
 
 ---
 
-# 3️⃣ Add the Python Code
+#  Add the Python Code
 
 Add the following code:
 
@@ -298,7 +298,7 @@ def lambda_handler(event, context):
 
 ---
 
-# 4️⃣ Deploy the Function
+#  Deploy the Function
 
 After adding or modifying the code:
 
@@ -324,7 +324,7 @@ Otherwise, your latest code may not be used when you test the function.
 
 ---
 
-# 5️⃣ Test the Lambda Function
+#  Test the Lambda Function
 
 You can test the function directly inside the Lambda Console.
 
@@ -370,7 +370,7 @@ Example:
 
 ---
 
-# 6️⃣ Create a Lambda Function URL
+#  Create a Lambda Function URL
 
 To make the Lambda function accessible from a browser, create a **Function URL**.
 
@@ -406,7 +406,7 @@ AWS may automatically create or update the required resource policy for public i
 
 ---
 
-# 7️⃣ Open the Website
+#  Open the Website
 
 After creating the Function URL, AWS provides a URL similar to:
 
@@ -533,26 +533,6 @@ html
 ```
 
 contains the actual website content.
-
----
-
-# 📁 Project Structure
-
-For the GitHub repository, you can organize the project like this:
-
-```text
-python-lambda-website/
-│
-├── README.md
-│
-├── lambda_function.py
-│
-└── screenshots/
-    ├── lambda-function.png
-    ├── lambda-test.png
-    ├── function-url.png
-    └── website.png
-```
 
 ---
 
@@ -796,19 +776,6 @@ Lambda Function URL
      └── Provides HTTPS Endpoint
 ```
 
-### One-Line Summary
-
-> **This project demonstrates how to build and deploy a simple Python website using AWS Lambda and expose it to the internet through a Lambda Function URL, without managing an EC2 server.**
-
 ---
-
-## 👨‍💻 Author
-
-**Rohit Tambadkar**
-
-AWS & DevOps Learning Repository
-
----
-
 ⭐ If this project helped you learn AWS Lambda, consider giving the repository a star.
 
