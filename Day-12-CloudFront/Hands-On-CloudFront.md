@@ -10,7 +10,7 @@ In this lab, you will create an Amazon S3 bucket, upload your static website fil
 - Upload static website files
 - Create a CloudFront Distribution
 - Configure the Default Root Object
-- Secure the S3 bucket using Origin Access Control (OAC)
+- Secure the S3 bucket using Origin Access 
 - Access the website through CloudFront
 
 ---
