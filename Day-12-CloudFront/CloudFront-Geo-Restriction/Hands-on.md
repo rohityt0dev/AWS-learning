@@ -51,7 +51,7 @@ Before starting this lab, ensure you have:
 
 ---
 
-# 🚀 Step 1: Open CloudFront
+# 🚀 Open CloudFront
 
 1. Sign in to the **AWS Management Console**.
 2. Search for **CloudFront**.
@@ -59,7 +59,7 @@ Before starting this lab, ensure you have:
 
 ---
 
-# 🚀 Step 2: Open the Distribution
+# 🚀  Open the Distribution
 
 Navigate to:
 
@@ -80,7 +80,7 @@ Click your **Distribution ID**.
 
 ---
 
-# 🚀 Step 3: Open the Security Settings
+# 🚀 Open the Security Settings
 
 Inside the distribution:
 
@@ -96,7 +96,7 @@ Edit
 
 ---
 
-# 🚀 Step 4: Configure Geo Restriction
+# 🚀 Configure Geo Restriction
 
 Choose one of the following options:
 
@@ -164,7 +164,7 @@ Save Changes
 
 ---
 
-# 🚀 Step 5: Wait for Deployment
+# 🚀 Wait for Deployment
 
 After saving the configuration, CloudFront updates the distribution.
 
